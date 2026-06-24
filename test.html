@@ -1,351 +1,705 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tasker247 Master Services Agreement (Boilerplate)</title>
-<style>
-body{font-family:Arial,sans-serif;max-width:1100px;margin:auto;padding:20px;background:#f5f7fa}
-.header,.section{background:#fff;border-radius:10px;padding:16px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
-.progress{position:sticky;top:0;background:#eef5ff;padding:10px;border-radius:8px;font-weight:bold}
-.hidden{display:none}
-label{display:block;font-weight:700;margin:8px 0 4px}
-input,select,textarea{width:100%;padding:10px;margin:6px 0 10px;box-sizing:border-box}
-.logo,.signature{border:1px dashed #888;padding:12px;text-align:center}
-canvas{border:1px solid #555;width:100%;height:180px}
-button{padding:12px 18px}
-.step{padding:10px;margin:5px;border-radius:5px;display:inline-block;background:#e0e0e0}
-.step.active{background:#2196F3;color:white}
-.step.complete{background:#4CAF50;color:white}
-.annexure{display:none}
-.annexure.active{display:block}
-@media(max-width:600px){body{padding:10px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasker247 Master Services Agreement</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      background: #f5f7fa
+    }
+
+    .header,
+    .section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .1)
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #eef5ff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .progress-label {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .progress-bar-track {
+      background: #cdd9f0;
+      border-radius: 6px;
+      height: 10px;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .progress-bar-fill {
+      height: 10px;
+      background: #2196F3;
+      border-radius: 6px;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* ── STEP PILLS ── */
+    .step-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .step {
+      padding: 6px 12px;
+      border-radius: 5px;
+      background: #e0e0e0;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .step.active {
+      background: #2196F3;
+      color: white;
+    }
+
+    .step.complete {
+      background: #4CAF50;
+      color: white;
+    }
+
+    /* ── GENERAL ── */
+    .hidden {
+      display: none
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin: 8px 0 4px
+    }
+
+    input:not([type=checkbox]):not([type=radio]),
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 10px;
+      box-sizing: border-box;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: auto;
+      margin: 0 8px 0 0;
+      vertical-align: middle;
+    }
+
+    .logo,
+    .signature-block {
+      border: 1px dashed #888;
+      padding: 12px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo img {
+      max-width: 100%;
+      max-height: 120px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    canvas {
+      border: 1px solid #555;
+      width: 100%;
+      height: 180px;
+      display: block;
+      touch-action: none;
+    }
+
+    button {
+      padding: 12px 18px
+    }
+
+    /* ── ANNEXURES ── */
+    .annexure {
+      display: none
+    }
+
+    .annexure.active {
+      display: block
+    }
+
+    /* ── SIGNATURE DATE BLOCKS ── */
+    .signature-metadata,
+    #clientDateBlock {
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+      font-style: italic;
+      color: #333;
+    }
+
+    .date-display {
+      font-weight: bold;
+      color: #1565c0;
+    }
+
+    @media(max-width:600px) {
+      body {
+        padding: 10px
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="header">
-  <h1>Tasker247 Master Services Agreement</h1>
-  <p>Boilerplate prototype for testing and UX validation.</p>
-  <p><strong>Contract ID:</strong> <span id="cid"></span></p>
-  <div class="progress" id="progress">Progress: 0%</div>
-  <div id="progressSteps">
-    <div class="step">Client Details</div>
-    <div class="step">Services</div>
-    <div class="step">Commercial</div>
-    <div class="step">Agreement</div>
-    <div class="step">Signature</div>
+  <div class="header">
+    <h1>Tasker247 Master Services Agreement</h1>
+    <p>Boilerplate prototype for testing and UX validation.</p>
+    <p><strong>Contract ID:</strong> <span id="cid"></span></p>
+
+    <!-- Progress bar + label -->
+    <div class="progress-wrap">
+      <div class="progress-label" id="progressLabel">Progress: 0% — Step: Client Details</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+      <div class="step-row" id="progressSteps">
+        <div class="step active" data-step="0">Client Details</div>
+        <div class="step" data-step="1">Services</div>
+        <div class="step" data-step="2">Commercial</div>
+        <div class="step" data-step="3">Agreement</div>
+        <div class="step" data-step="4">Signature</div>
+      </div>
+    </div>
   </div>
-</div>
 
-<form id="contractForm">
+  <!-- ════════════════════════════════════════════════
+       IMPORTANT: Replace YOUR_FORMSPREE_ID below
+       with your actual Formspree form ID, e.g. xpwzknab
+       Get one free at https://formspree.io
+  ════════════════════════════════════════════════ -->
+  <form id="contractForm" action="https://formspree.io/f/mvzjzdzy" method="POST">
 
-<div class="section">
-<h2>Client Information</h2>
-<label for="clientType">Select Client Type</label>
-<select id="clientType">
-  <option value="">Select Client Type</option>
-  <option value="individual">Individual</option>
-  <option value="company">Organisation / Company</option>
-</select>
+    <!-- ── STEP 0: CLIENT DETAILS ── -->
+    <div class="section" data-section="0">
+      <h2>Client Information</h2>
+      <label for="clientType">Select Client Type</label>
+      <select id="clientType" name="clientType">
+        <option value="">Select Client Type</option>
+        <option value="individual">Individual</option>
+        <option value="company">Organisation / Company</option>
+      </select>
 
-<div id="individualBlock" class="hidden">
-  <label for="fullName">Full Name</label>
-  <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
-  <label for="idNumber">ID / Passport Number</label>
-  <input type="text" id="idNumber" name="idNumber" placeholder="Enter your ID number">
-  <label for="indContact">Contact Number</label>
-  <input type="text" id="indContact" name="indContact" placeholder="Enter your contact number">
-</div>
+      <div id="individualBlock" class="hidden">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+        <label for="idNumber">ID / Passport Number</label>
+        <input type="text" id="idNumber" name="idNumber" placeholder="Enter your ID number">
+        <label for="indContact">Contact Number</label>
+        <input type="text" id="indContact" name="indContact" placeholder="Enter your contact number">
+      </div>
 
-<div id="companyBlock" class="hidden">
-  <label for="companyName">Company Name</label>
-  <input type="text" id="companyName" name="companyName" placeholder="Enter company name">
-  <label for="registrationNumber">Registration Number</label>
-  <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter registration number">
-  <label for="representativeName">Representative Name</label>
-  <input type="text" id="representativeName" name="representativeName" placeholder="Enter representative name">
-  <label for="representativeID">Representative ID</label>
-  <input type="text" id="representativeID" name="representativeID" placeholder="Enter representative ID">
-  <label for="representativePosition">Representative Position</label>
-  <input type="text" id="representativePosition" name="representativePosition" placeholder="Enter representative position">
-</div>
+      <div id="companyBlock" class="hidden">
+        <label for="companyName">Company Name</label>
+        <input type="text" id="companyName" name="companyName" placeholder="Enter company name">
+        <label for="registrationNumber">Registration Number</label>
+        <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter registration number">
+        <label for="representativeName">Representative Name</label>
+        <input type="text" id="representativeName" name="representativeName" placeholder="Enter representative name">
+        <label for="representativeID">Representative ID</label>
+        <input type="text" id="representativeID" name="representativeID" placeholder="Enter representative ID">
+        <label for="representativePosition">Representative Position</label>
+        <input type="text" id="representativePosition" name="representativePosition"
+          placeholder="Enter representative position">
+      </div>
 
-<label for="email">Email Address</label>
-<input type="email" id="email" name="email" placeholder="Enter email address">
-<label for="telephone">Telephone</label>
-<input type="tel" id="telephone" name="telephone" placeholder="Enter telephone number">
-<label for="physicalAddress">Physical Address</label>
-<textarea id="physicalAddress" name="physicalAddress" placeholder="Enter physical address"></textarea>
-</div>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter email address">
+      <label for="telephone">Telephone</label>
+      <input type="tel" id="telephone" name="telephone" placeholder="Enter telephone number">
+      <label for="physicalAddress">Physical Address</label>
+      <textarea id="physicalAddress" name="physicalAddress" placeholder="Enter physical address"></textarea>
+    </div>
 
-<div class="section">
-<h2>Service Selection</h2>
-<label for="serviceType">Select Service</label>
-<select id="serviceType">
-  <option value="">Select Service</option>
-  <option value="compliance">Compliance Services</option>
-  <option value="admin">Administrative Services</option>
-  <option value="process">Process Mapping & Business Improvement</option>
-  <option value="data">Data Visualisation & Reporting</option>
-  <option value="project">Project & Consulting Services</option>
-</select>
-</div>
+    <!-- ── STEP 1: SERVICES ── -->
+    <div class="section" data-section="1">
+      <h2>Service Selection</h2>
+      <label for="serviceType">Select Service</label>
+      <select id="serviceType" name="serviceType">
+        <option value="">Select Service</option>
+        <option value="compliance services">Compliance Services</option>
+        <option value="administrative services">Administrative Services</option>
+        <option value="process mapping">Process Mapping &amp; Business Improvement</option>
+        <option value="data visualization">Data Visualization &amp; Reporting</option>
+        <option value="project and consulting services">Project &amp; Consulting Services</option>
+      </select>
+    </div>
 
-<div class="section">
-<h2>Commercial Terms</h2>
-<label for="projectValue">Project Value</label>
-<input type="number" id="projectValue" name="projectValue" placeholder="Enter project value">
-<label for="depositAmount">Deposit Amount</label>
-<input type="number" id="depositAmount" name="depositAmount" placeholder="Enter deposit amount">
-<label for="balanceAmount">Balance Amount</label>
-<input type="number" id="balanceAmount" name="balanceAmount" placeholder="Enter balance amount">
-<label for="expectedStartDate">Expected Start Date</label>
-<input type="date" id="expectedStartDate" name="expectedStartDate">
-<label for="expectedCompletionDate">Expected Completion Date</label>
-<input type="date" id="expectedCompletionDate" name="expectedCompletionDate">
-</div>
+    <!-- ── STEP 2: COMMERCIAL TERMS ── -->
+    <div class="section" data-section="2">
+      <h2>Commercial Terms</h2>
+      <label for="projectValue">Project Value</label>
+      <input type="number" id="projectValue" name="projectValue" placeholder="Enter project value">
+      <label for="depositAmount">Deposit Amount</label>
+      <input type="number" id="depositAmount" name="depositAmount" placeholder="Enter deposit amount">
+      <label for="balanceAmount">Balance Amount</label>
+      <input type="number" id="balanceAmount" name="balanceAmount" placeholder="Enter balance amount">
+      <label for="expectedStartDate">Expected Start Date</label>
+      <input type="date" id="expectedStartDate" name="expectedStartDate">
+      <label for="expectedCompletionDate">Expected Completion Date</label>
+      <input type="date" id="expectedCompletionDate" name="expectedCompletionDate">
+    </div>
 
-<div class="section">
-<h2>Master Service Agreement</h2>
-<ol>
-<li>Scope of Services</li>
-<li>Client Information Warranty</li>
-<li>Verification Rights</li>
-<li>Fees and Payment</li>
-<li>Refund Policy</li>
-<li>Confidentiality</li>
-<li>POPIA</li>
-<li>Intellectual Property</li>
-<li>Limitation of Liability</li>
-<li>Electronic Signatures</li>
-<li>Force Majeure</li>
-<li>Termination</li>
-<li>Governing Law</li>
-<li>Dispute Resolution</li>
-</ol>
-</div>
+    <!-- ── STEP 3: AGREEMENT ── -->
+    <div class="section" data-section="3">
+      <h2>Master Service Agreement</h2>
+      <ol>
+        <li>Scope of Services</li>
+        <li>Client Information Warranty</li>
+        <li>Verification Rights</li>
+        <li>Fees and Payment</li>
+        <li>Refund Policy</li>
+        <li>Confidentiality</li>
+        <li>POPIA</li>
+        <li>Intellectual Property</li>
+        <li>Limitation of Liability</li>
+        <li>Electronic Signatures</li>
+        <li>Force Majeure</li>
+        <li>Termination</li>
+        <li>Governing Law</li>
+        <li>Dispute Resolution</li>
+      </ol>
+    </div>
 
-<div id="annexureCompliance" class="section annexure">
-<h2>Annexure A – Compliance Services</h2>
-<p>Client responsible for accuracy of submissions. Regulatory outcomes not guaranteed.</p>
-</div>
+    <!-- Annexures (shown based on service selection) -->
+    <div id="annexureCompliance" class="section annexure">
+      <h2>Annexure A – Compliance Services</h2>
+      <p>Client responsible for accuracy of submissions. Regulatory outcomes not guaranteed.</p>
+    </div>
+    <div id="annexureAdmin" class="section annexure">
+      <h2>Annexure B – Administrative Services</h2>
+      <p>Services executed on client instructions. Source data remains client responsibility.</p>
+    </div>
+    <div id="annexureProcess" class="section annexure">
+      <h2>Annexure C – Process Mapping &amp; Business Improvement</h2>
+      <p>Recommendations provided based on information available during engagement.</p>
+    </div>
+    <div id="annexureData" class="section annexure">
+      <h2>Annexure D – Data Visualisation &amp; Reporting</h2>
+      <p>Outputs depend on data quality and completeness supplied by client.</p>
+    </div>
+    <div id="annexureProject" class="section annexure">
+      <h2>Annexure E – Project &amp; Consulting Services</h2>
+      <p>Scope changes require written approval and may affect fees and timelines.</p>
+    </div>
 
-<div id="annexureAdmin" class="section annexure">
-<h2>Annexure B – Administrative Services</h2>
-<p>Services executed on client instructions. Source data remains client responsibility.</p>
-</div>
+    <!-- ── TASKER247 BRANDING & PRE-SIGNED BLOCK ── -->
+    <div class="section">
+      <h2>Tasker247</h2>
+      <div class="logo">
+        <img src="https://raw.githubusercontent.com/fkoete/sig.tasker247.com/main/GBP_logo.png" alt="Tasker247 Logo">
+      </div>
+      <br>
+      <div class="signature-block">
+        <a href="https://fontmeme.com/calligraphy-fonts/">
+          <img src="https://fontmeme.com/permalink/260623/79974a25.png" alt="authorized Tasker247 Signature" border="0">
+        </a>
+      </div>
+    </div>
 
-<div id="annexureProcess" class="section annexure">
-<h2>Annexure C – Process Mapping & Business Improvement</h2>
-<p>Recommendations provided based on information available during engagement.</p>
-</div>
+    <!-- Tasker247 signed-at block — date auto-generated on page load -->
+    <div class="signature-metadata">
+      Signed at: <strong>Pretoria, South Africa</strong>
+      <br><br>
+      On this <span class="date-display" id="taskerSignatureDate">[date will appear here]</span>
+    </div>
 
-<div id="annexureData" class="section annexure">
-<h2>Annexure D – Data Visualisation & Reporting</h2>
-<p>Outputs depend on data quality and completeness supplied by client.</p>
-</div>
+    <!-- ── STEP 4: CLIENT ACCEPTANCE ── -->
+    <div class="section" data-section="4">
+      <h2>Client Acceptance</h2>
+      <label for="typedSignature">Typed Full Name (Electronic Signature)</label>
+      <input type="text" id="typedSignature" name="typedSignature" placeholder="Type your full name">
 
-<div id="annexureProject" class="section annexure">
-<h2>Annexure E – Project & Consulting Services</h2>
-<p>Scope changes require written approval and may affect fees and timelines.</p>
-</div>
+      <label><input type="checkbox" name="truthConfirm" id="truthConfirm"> I confirm all information supplied is true and accurate.</label>
+      <label><input type="checkbox" name="agreementConfirm" id="agreementConfirm"> I accept the Master Services Agreement.</label>
+      <label><input type="checkbox" name="consentConfirm" id="consentConfirm"> I consent to electronic execution.</label>
 
-<div class="section">
-<h2>Tasker247 Branding</h2>
-<div class="logo">
-    <img src="https://github.com/fkoete/sig.tasker247.com/blob/main/GBP_logo.png" alt="Tasker247 Logo" width="100">
-</a></div>
-<br>
-<div class="signature"><a href="https://fontmeme.com/calligraphy-fonts/"><img src="https://fontmeme.com/permalink/260623/79974a25.png" alt="calligraphy-fonts" border="0"></a></div>
-</div>
+      <p>Draw Signature Below</p>
+      <canvas id="signaturePad"></canvas>
+      <button type="button" onclick="clearSignature()" style="margin-top:6px;padding:6px 14px;font-size:13px;">Clear Signature</button>
 
-<div class="signature-metadata">
+      <label style="margin-top:12px;">Place of Signature</label>
+      <input type="text" id="clientPlace" name="clientPlace" placeholder="City / Town">
 
-    Signed at:
-    Johannesburg, South Africa
+      <!-- Hidden fields to carry signature data on submit -->
+      <input type="hidden" id="signatureDataField" name="signatureData">
+      <input type="hidden" id="contractDateField" name="contractDate">
 
-    <br><br>
+      <!-- Hidden audit fields — invisible to client, visible in Formspree submission -->
+      <input type="hidden" id="contractIDField" name="contractID">
+      <input type="hidden" id="signingTimestamp" name="signingTimestamp">
+      <input type="hidden" id="clientIPField" name="clientIP">
+    </div>
 
-    On this
-    <span id="taskerSignatureDate"></span>
+    <!-- Client signed-at block — date auto-generated when canvas is first drawn on -->
+    <div id="clientDateBlock" class="signature-metadata">
+      Signed at: <span id="clientPlaceDisplay"><em>(place not yet entered)</em></span>
+      <br><br>
+      On this <span class="date-display" id="clientSignatureDate">[date will appear once you sign]</span>
+    </div>
 
-</div>
+    <div class="section">
+      <button type="submit">Sign and Submit</button>
+    </div>
 
-<div class="section">
-<h2>Client Acceptance</h2>
-<label for="typedSignature">Typed Full Name (Electronic Signature)</label>
-<input type="text" id="typedSignature" name="typedSignature" placeholder="Type your full name">
-<label><input type="checkbox" name="truthConfirm"> I confirm all information supplied is true and accurate.</label>
-<label><input type="checkbox" name="agreementConfirm"> I accept the Master Services Agreement.</label>
-<label><input type="checkbox" name="consentConfirm"> I consent to electronic execution.</label>
-<p>Draw Signature Below</p>
-<canvas id="signaturePad"></canvas>
-<label>
-Place of Signature
-</label>
+  </form>
 
-<input
-type="text"
-id="clientPlace"
-placeholder="City / Town">
-</div>
+  <footer style="margin-top:20px;text-align:center;color:#666;font-size:13px;">
+    <p>Tasker247 (Pty) Ltd</p>
+    <p>helpdesk.info@tasker247.com</p>
+  </footer>
 
-<div id="clientDateBlock">
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
-    Signed at:
-    <span id="clientPlaceDisplay"></span>
-
-    <br><br>
-
-    On this
-    <span id="clientSignatureDate"></span>
-
-</div>
-
-<div class="section">
-  <button type="submit">Sign and Submit</button>
-</div>
-
-
-
-</form>
-
-<footer>
-<p>Tasker247 (Pty) Ltd</p>
-<p>support@tasker247.com</p>
-</footer>
-
-<!-- Signature Pad Library - moved to end of body -->
-<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
-
-<script>
-
-document.addEventListener("DOMContentLoaded", () => {
-  generateContractID();
-  initialiseClientType();
-  initialiseServiceSelection();
-  initialiseSignaturePad();
-});
-
-function generateContractID() {
-  const today = new Date();
-  const date = today.getFullYear() + String(today.getMonth()+1).padStart(2,'0') + String(today.getDate()).padStart(2,'0');
-  const random = Math.random().toString(16).substring(2,8).toUpperCase();
-  const contractID = `T247-${date}-${random}`;
-  document.getElementById("cid").textContent = contractID;
-}
-
-function initialiseClientType() {
-  const clientType = document.getElementById("clientType");
-  const individualBlock = document.getElementById("individualBlock");
-  const companyBlock = document.getElementById("companyBlock");
-
-  clientType.addEventListener("change", () => {
-    individualBlock.classList.add("hidden");
-    companyBlock.classList.add("hidden");
-
-    if(clientType.value === "individual") {
-      individualBlock.classList.remove("hidden");
+  <script>
+    /* ════════════════════════════════════════════
+       UTILITY: ordinal date string
+    ════════════════════════════════════════════ */
+    function ordinal(n) {
+      const s = ["th", "st", "nd", "rd"];
+      const v = n % 100;
+      return n + (s[(v - 20) % 10] || s[v] || s[0]);
     }
 
-    if(clientType.value === "company") {
-      companyBlock.classList.remove("hidden");
+    function getContractDate() {
+      const d = new Date();
+      return `the ${ordinal(d.getDate())} day of ${d.toLocaleString('default', { month: 'long' })} ${d.getFullYear()}`;
     }
-  });
-}
 
-function initialiseServiceSelection() {
-  const service = document.getElementById("serviceType");
-  service.addEventListener("change", () => {
-    loadAnnexure(service.value);
-  });
-}
-
-function loadAnnexure(service) {
-  document.querySelectorAll(".annexure").forEach(a => {
-    a.classList.remove("active");
-  });
-
-  if(service) {
-    const annexure = document.getElementById("annexure" + capitalizeFirst(service));
-    if(annexure) {
-      annexure.classList.add("active");
+    /* ════════════════════════════════════════════
+       CONTRACT ID
+    ════════════════════════════════════════════ */
+    function generateContractID() {
+      const today = new Date();
+      const date = today.getFullYear()
+        + String(today.getMonth() + 1).padStart(2, '0')
+        + String(today.getDate()).padStart(2, '0');
+      const random = Math.random().toString(16).substring(2, 8).toUpperCase();
+      const id = `T247-${date}-${random}`;
+      document.getElementById("cid").textContent = id;
+      // Also pre-fill the hidden contractID field so it travels with the POST
+      document.getElementById("contractIDField").value = id;
     }
-  }
-}
 
-function capitalizeFirst(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+    /* ════════════════════════════════════════════
+       ISO 8601 TIMESTAMP  (SAST = UTC+02:00)
+       Produces: 2026-06-24T10:46:23+02:00
+    ════════════════════════════════════════════ */
+    function getISOTimestamp() {
+      const now = new Date();
+      // Use the browser's local offset so the form works correctly
+      // even if the client is outside SAST — you'll see their real local time.
+      const tzOffset = -now.getTimezoneOffset(); // minutes
+      const sign = tzOffset >= 0 ? "+" : "-";
+      const absOff = Math.abs(tzOffset);
+      const hh = String(Math.floor(absOff / 60)).padStart(2, "0");
+      const mm = String(absOff % 60).padStart(2, "0");
+      const pad = n => String(n).padStart(2, "0");
+      return `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`
+           + `T${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
+           + `${sign}${hh}:${mm}`;
+    }
 
-let signaturePad;
+    /* ════════════════════════════════════════════
+       IP ADDRESS FETCH (on page load, silent)
+       Uses api.ipify.org — free, no key needed.
+       Stored in hidden field; sent with form POST.
+    ════════════════════════════════════════════ */
+    function fetchClientIP() {
+      fetch("https://api.ipify.org?format=json")
+        .then(r => r.json())
+        .then(data => {
+          document.getElementById("clientIPField").value = data.ip || "unavailable";
+        })
+        .catch(() => {
+          document.getElementById("clientIPField").value = "unavailable";
+        });
+    }
 
-function initialiseSignaturePad() {
-  const canvas = document.getElementById("signaturePad");
-  if(typeof SignaturePad !== 'undefined') {
-    signaturePad = new SignaturePad(canvas);
-  } else {
-    console.warn("Signature Pad library not loaded");
-  }
-}
+    /* ════════════════════════════════════════════
+       PROGRESS TRACKER
+       — Step boundaries defined by which section
+         fields have been touched / filled.
+       Steps: 0=Client, 1=Services, 2=Commercial,
+              3=Agreement (auto-complete), 4=Signature
+    ════════════════════════════════════════════ */
 
-function clearSignature() {
-  if(signaturePad) {
-    signaturePad.clear();
-  }
-}
+    const STEP_LABELS = [
+      "Client Details",
+      "Services",
+      "Commercial",
+      "Agreement",
+      "Signature"
+    ];
 
-document.getElementById("contractForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  
-  if(signaturePad && !signaturePad.isEmpty()) {
-    alert("Contract submitted successfully!");
-  } else {
-    alert("Please sign the contract before submitting.");
-  }
-});
+    // Fields that count toward each step (by element id)
+    const STEP_FIELDS = [
+      // Step 0 – Client Details: at minimum email is required
+      ["clientType", "email", "telephone", "physicalAddress"],
+      // Step 1 – Services
+      ["serviceType"],
+      // Step 2 – Commercial
+      ["projectValue", "depositAmount", "expectedStartDate", "expectedCompletionDate"],
+      // Step 3 – Agreement: auto-counted as complete once step 2 is done (user has scrolled past it)
+      [],
+      // Step 4 – Signature
+      ["typedSignature", "truthConfirm", "agreementConfirm", "consentConfirm", "clientPlace"]
+    ];
 
-function ordinal(n){
+    function countFilledInStep(stepIndex) {
+      const fields = STEP_FIELDS[stepIndex];
+      if (fields.length === 0) return 1; // Agreement step auto-completes
+      let filled = 0;
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (el.type === "checkbox") {
+          if (el.checked) filled++;
+        } else {
+          if (el.value && el.value.trim() !== "" && el.value !== "0") filled++;
+        }
+      });
+      return filled;
+    }
 
-    const s =
-        ["th","st","nd","rd"];
+    function totalInStep(stepIndex) {
+      const fields = STEP_FIELDS[stepIndex];
+      return fields.length === 0 ? 1 : fields.length;
+    }
 
-    const v =
-        n % 100;
+    function updateProgress() {
+      const totalFields = STEP_FIELDS.reduce((sum, arr) => sum + (arr.length === 0 ? 1 : arr.length), 0);
+      let totalFilled = 0;
+      let activeStep = 0;
 
-    return n +
-    (
-        s[(v-20)%10]
-        ||
-        s[v]
-        ||
-        s[0]
-    );
-}
+      for (let i = 0; i < STEP_FIELDS.length; i++) {
+        const filled = countFilledInStep(i);
+        const total = totalInStep(i);
+        totalFilled += filled;
+        // Step is "complete" when all its fields are filled
+        if (filled >= total && i >= activeStep) {
+          activeStep = i + 1;
+        }
+      }
 
-function getContractDate() {
+      // Also include canvas signature in step 4 check
+      if (signaturePad && !signaturePad.isEmpty()) {
+        totalFilled += 1;
+      }
+      const grandTotal = totalFields + 1; // +1 for canvas sig
+      const pct = Math.min(100, Math.round((totalFilled / grandTotal) * 100));
 
-    const d =
-        new Date();
+      // Clamp activeStep
+      if (activeStep > 4) activeStep = 4;
 
-    const day =
-        ordinal(d.getDate());
+      // Update bar
+      document.getElementById("progressBarFill").style.width = pct + "%";
+      document.getElementById("progressLabel").textContent =
+        `Progress: ${pct}% — Step: ${STEP_LABELS[activeStep] || "Complete"}`;
 
-    const month =
-        d.toLocaleString(
-            'default',
-            { month:'long' }
-        );
+      // Update step pills
+      document.querySelectorAll(".step").forEach(el => {
+        const s = parseInt(el.dataset.step, 10);
+        el.classList.remove("active", "complete");
+        if (s < activeStep) el.classList.add("complete");
+        else if (s === activeStep) el.classList.add("active");
+      });
+    }
 
-    const year =
-        d.getFullYear();
+    /* ════════════════════════════════════════════
+       CLIENT TYPE TOGGLE
+    ════════════════════════════════════════════ */
+    function initClientType() {
+      const clientType = document.getElementById("clientType");
+      clientType.addEventListener("change", () => {
+        document.getElementById("individualBlock").classList.add("hidden");
+        document.getElementById("companyBlock").classList.add("hidden");
+        if (clientType.value === "individual")
+          document.getElementById("individualBlock").classList.remove("hidden");
+        if (clientType.value === "company")
+          document.getElementById("companyBlock").classList.remove("hidden");
+        updateProgress();
+      });
+    }
 
-    return `the ${day} day of ${month} ${year}`;
-}
+    /* ════════════════════════════════════════════
+       SERVICE / ANNEXURE TOGGLE
+    ════════════════════════════════════════════ */
+    function initServiceSelection() {
+      const service = document.getElementById("serviceType");
+      service.addEventListener("change", () => {
+        document.querySelectorAll(".annexure").forEach(a => a.classList.remove("active"));
+        if (service.value) {
+          const ann = document.getElementById(
+            "annexure" + service.value.charAt(0).toUpperCase() + service.value.slice(1)
+          );
+          if (ann) ann.classList.add("active");
+        }
+        updateProgress();
+      });
+    }
 
+    /* ════════════════════════════════════════════
+       LIVE "PLACE" DISPLAY
+    ════════════════════════════════════════════ */
+    function initClientPlace() {
+      document.getElementById("clientPlace").addEventListener("input", function () {
+        const display = document.getElementById("clientPlaceDisplay");
+        display.innerHTML = this.value
+          ? `<strong>${this.value}</strong>`
+          : "<em>(place not yet entered)</em>";
+        updateProgress();
+      });
+    }
 
-</script>
+    /* ════════════════════════════════════════════
+       SIGNATURE PAD
+    ════════════════════════════════════════════ */
+    let signaturePad;
+    let clientDateSet = false;
+
+    function initSignaturePad() {
+      const canvas = document.getElementById("signaturePad");
+      if (typeof SignaturePad !== 'undefined') {
+        signaturePad = new SignaturePad(canvas, {
+          backgroundColor: 'rgb(255,255,255)'
+        });
+
+        // Set client signature date on first stroke
+        signaturePad.addEventListener("afterUpdateStroke", () => {
+          if (!clientDateSet) {
+            document.getElementById("clientSignatureDate").textContent = getContractDate();
+            clientDateSet = true;
+          }
+          updateProgress();
+        });
+
+        // Resize canvas correctly
+        function resizeCanvas() {
+          const ratio = Math.max(window.devicePixelRatio || 1, 1);
+          canvas.width = canvas.offsetWidth * ratio;
+          canvas.height = canvas.offsetHeight * ratio;
+          canvas.getContext("2d").scale(ratio, ratio);
+          signaturePad.clear();
+          clientDateSet = false;
+          document.getElementById("clientSignatureDate").textContent = "[date will appear once you sign]";
+        }
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+      } else {
+        console.warn("Signature Pad library not loaded");
+      }
+    }
+
+    function clearSignature() {
+      if (signaturePad) {
+        signaturePad.clear();
+        clientDateSet = false;
+        document.getElementById("clientSignatureDate").textContent = "[date will appear once you sign]";
+        updateProgress();
+      }
+    }
+
+    /* ════════════════════════════════════════════
+       ATTACH CHANGE LISTENERS TO ALL TRACKED FIELDS
+    ════════════════════════════════════════════ */
+    function attachFieldListeners() {
+      const allIds = STEP_FIELDS.flat();
+      allIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener(el.type === "checkbox" ? "change" : "input", updateProgress);
+      });
+    }
+
+    /* ════════════════════════════════════════════
+       FORM SUBMIT
+    ════════════════════════════════════════════ */
+    document.getElementById("contractForm").addEventListener("submit", function (e) {
+      // Validate signature
+      if (!signaturePad || signaturePad.isEmpty()) {
+        e.preventDefault();
+        alert("Please draw your signature before submitting.");
+        return;
+      }
+
+      // Validate checkboxes
+      const checks = ["truthConfirm", "agreementConfirm", "consentConfirm"];
+      for (const id of checks) {
+        if (!document.getElementById(id).checked) {
+          e.preventDefault();
+          alert("Please tick all three confirmation checkboxes before submitting.");
+          return;
+        }
+      }
+
+      // Embed signature image and date into hidden fields before POST
+      document.getElementById("signatureDataField").value = signaturePad.toDataURL();
+      document.getElementById("contractDateField").value = getContractDate();
+      // Stamp the exact signing moment in ISO 8601 format
+      document.getElementById("signingTimestamp").value = getISOTimestamp();
+
+      // If Formspree ID hasn't been replaced, show reminder and prevent submit
+      if (this.action.includes("YOUR_FORMSPREE_ID")) {
+        e.preventDefault();
+        alert("Please replace YOUR_FORMSPREE_ID in the form's action attribute with your actual Formspree form ID before going live.");
+        return;
+      }
+
+      // Normal Formspree POST will proceed
+    });
+
+    /* ════════════════════════════════════════════
+       INIT ON DOM READY
+    ════════════════════════════════════════════ */
+    document.addEventListener("DOMContentLoaded", () => {
+      generateContractID();
+      fetchClientIP(); // silently fetch and store client IP on page load
+
+      // Set Tasker247 signed date immediately (document date)
+      document.getElementById("taskerSignatureDate").textContent = getContractDate();
+
+      initClientType();
+      initServiceSelection();
+      initClientPlace();
+      initSignaturePad();
+      attachFieldListeners();
+      updateProgress(); // draw initial state
+    });
+  </script>
 
 </body>
 </html>
