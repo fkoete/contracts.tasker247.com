@@ -1,352 +1,441 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tasker247 Master Services Agreement (Boilerplate)</title>
-<style>
-body{font-family:Arial,sans-serif;max-width:1100px;margin:auto;padding:20px;background:#f5f7fa}
-.header,.section{background:#fff;border-radius:10px;padding:16px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.1)}
-.progress{position:sticky;top:0;background:#eef5ff;padding:10px;border-radius:8px;font-weight:bold}
-.hidden{display:none}
-label{display:block;font-weight:700;margin:8px 0 4px}
-input,select,textarea{width:100%;padding:10px;margin:6px 0 10px;box-sizing:border-box}
-.logo,.signature{border:1px dashed #888;padding:12px;text-align:center}
-canvas{border:1px solid #555;width:100%;height:180px}
-button{padding:12px 18px}
-.step{padding:10px;margin:5px;border-radius:5px;display:inline-block;background:#e0e0e0}
-.step.active{background:#2196F3;color:white}
-.step.complete{background:#4CAF50;color:white}
-.annexure{display:none}
-.annexure.active{display:block}
-@media(max-width:600px){body{padding:10px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasker247 Master Services Agreement (Boilerplate)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      background: #f5f7fa
+    }
+
+    .header,
+    .section {
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .1)
+    }
+
+    .progress {
+      position: sticky;
+      top: 0;
+      background: #eef5ff;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: bold
+    }
+
+    .hidden {
+      display: none
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin: 8px 0 4px
+    }
+
+    input:not([type=checkbox]):not([type=radio]),
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 10px;
+      box-sizing: border-box;
+    }
+
+    /* Keep checkboxes and radios at their natural size and align them with text */
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: auto;
+      margin: 0 8px 0 0;
+      vertical-align: middle;
+    }
+
+    .logo,
+    .signature {
+      border: 1px dashed #888;
+      padding: 12px;
+      text-align: center
+    }
+
+    canvas {
+      border: 1px solid #555;
+      width: 100%;
+      height: 180px
+    }
+
+    button {
+      padding: 12px 18px
+    }
+
+    .step {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      display: inline-block;
+      background: #e0e0e0
+    }
+
+    .step.active {
+      background: #2196F3;
+      color: white
+    }
+
+    .step.complete {
+      background: #4CAF50;
+      color: white
+    }
+
+    .annexure {
+      display: none
+    }
+
+    .annexure.active {
+      display: block
+    }
+
+    @media(max-width:600px) {
+      body {
+        padding: 10px
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="header">
-  <h1>Tasker247 Master Services Agreement</h1>
-  <p>Boilerplate prototype for testing and UX validation.</p>
-  <p><strong>Contract ID:</strong> <span id="cid"></span></p>
-  <div class="progress" id="progress">Progress: 0%</div>
-  <div id="progressSteps">
-    <div class="step">Client Details</div>
-    <div class="step">Services</div>
-    <div class="step">Commercial</div>
-    <div class="step">Agreement</div>
-    <div class="step">Signature</div>
+  <div class="header">
+    <h1>Tasker247 Master Services Agreement</h1>
+    <p>Boilerplate prototype for testing and UX validation.</p>
+    <p><strong>Contract ID:</strong> <span id="cid"></span></p>
+    <div class="progress" id="progress">Progress: 0%</div>
+    <div id="progressSteps">
+      <div class="step">Client Details</div>
+      <div class="step">Services</div>
+      <div class="step">Commercial</div>
+      <div class="step">Agreement</div>
+      <div class="step">Signature</div>
+    </div>
   </div>
-</div>
 
-<form id="contractForm">
+  <form id="contractForm">
 
-<div class="section">
-<h2>Client Information</h2>
-<label for="clientType">Select Client Type</label>
-<select id="clientType">
-  <option value="">Select Client Type</option>
-  <option value="individual">Individual</option>
-  <option value="company">Organisation / Company</option>
-</select>
+    <div class="section">
+      <h2>Client Information</h2>
+      <label for="clientType">Select Client Type</label>
+      <select id="clientType">
+        <option value="">Select Client Type</option>
+        <option value="individual">Individual</option>
+        <option value="company">Organisation / Company</option>
+      </select>
 
-<div id="individualBlock" class="hidden">
-  <label for="fullName">Full Name</label>
-  <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
-  <label for="idNumber">ID / Passport Number</label>
-  <input type="text" id="idNumber" name="idNumber" placeholder="Enter your ID number">
-  <label for="indContact">Contact Number</label>
-  <input type="text" id="indContact" name="indContact" placeholder="Enter your contact number">
-</div>
+      <div id="individualBlock" class="hidden">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+        <label for="idNumber">ID / Passport Number</label>
+        <input type="text" id="idNumber" name="idNumber" placeholder="Enter your ID number">
+        <label for="indContact">Contact Number</label>
+        <input type="text" id="indContact" name="indContact" placeholder="Enter your contact number">
+      </div>
 
-<div id="companyBlock" class="hidden">
-  <label for="companyName">Company Name</label>
-  <input type="text" id="companyName" name="companyName" placeholder="Enter company name">
-  <label for="registrationNumber">Registration Number</label>
-  <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter registration number">
-  <label for="representativeName">Representative Name</label>
-  <input type="text" id="representativeName" name="representativeName" placeholder="Enter representative name">
-  <label for="representativeID">Representative ID</label>
-  <input type="text" id="representativeID" name="representativeID" placeholder="Enter representative ID">
-  <label for="representativePosition">Representative Position</label>
-  <input type="text" id="representativePosition" name="representativePosition" placeholder="Enter representative position">
-</div>
+      <div id="companyBlock" class="hidden">
+        <label for="companyName">Company Name</label>
+        <input type="text" id="companyName" name="companyName" placeholder="Enter company name">
+        <label for="registrationNumber">Registration Number</label>
+        <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter registration number">
+        <label for="representativeName">Representative Name</label>
+        <input type="text" id="representativeName" name="representativeName" placeholder="Enter representative name">
+        <label for="representativeID">Representative ID</label>
+        <input type="text" id="representativeID" name="representativeID" placeholder="Enter representative ID">
+        <label for="representativePosition">Representative Position</label>
+        <input type="text" id="representativePosition" name="representativePosition"
+          placeholder="Enter representative position">
+      </div>
 
-<label for="email">Email Address</label>
-<input type="email" id="email" name="email" placeholder="Enter email address">
-<label for="telephone">Telephone</label>
-<input type="tel" id="telephone" name="telephone" placeholder="Enter telephone number">
-<label for="physicalAddress">Physical Address</label>
-<textarea id="physicalAddress" name="physicalAddress" placeholder="Enter physical address"></textarea>
-</div>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter email address">
+      <label for="telephone">Telephone</label>
+      <input type="tel" id="telephone" name="telephone" placeholder="Enter telephone number">
+      <label for="physicalAddress">Physical Address</label>
+      <textarea id="physicalAddress" name="physicalAddress" placeholder="Enter physical address"></textarea>
+    </div>
 
-<div class="section">
-<h2>Service Selection</h2>
-<label for="serviceType">Select Service</label>
-<select id="serviceType">
-  <option value="">Select Service</option>
-  <option value="compliance">Compliance Services</option>
-  <option value="admin">Administrative Services</option>
-  <option value="process">Process Mapping & Business Improvement</option>
-  <option value="data">Data Visualisation & Reporting</option>
-  <option value="project">Project & Consulting Services</option>
-</select>
-</div>
+    <div class="section">
+      <h2>Service Selection</h2>
+      <label for="serviceType">Select Service</label>
+      <select id="serviceType">
+        <option value="">Select Service</option>
+        <option value="compliance">Compliance Services</option>
+        <option value="admin">Administrative Services</option>
+        <option value="process">Process Mapping & Business Improvement</option>
+        <option value="data">Data Visualisation & Reporting</option>
+        <option value="project">Project & Consulting Services</option>
+      </select>
+    </div>
 
-<div class="section">
-<h2>Commercial Terms</h2>
-<label for="projectValue">Project Value</label>
-<input type="number" id="projectValue" name="projectValue" placeholder="Enter project value">
-<label for="depositAmount">Deposit Amount</label>
-<input type="number" id="depositAmount" name="depositAmount" placeholder="Enter deposit amount">
-<label for="balanceAmount">Balance Amount</label>
-<input type="number" id="balanceAmount" name="balanceAmount" placeholder="Enter balance amount">
-<label for="expectedStartDate">Expected Start Date</label>
-<input type="date" id="expectedStartDate" name="expectedStartDate">
-<label for="expectedCompletionDate">Expected Completion Date</label>
-<input type="date" id="expectedCompletionDate" name="expectedCompletionDate">
-</div>
+    <div class="section">
+      <h2>Commercial Terms</h2>
+      <label for="projectValue">Project Value</label>
+      <input type="number" id="projectValue" name="projectValue" placeholder="Enter project value">
+      <label for="depositAmount">Deposit Amount</label>
+      <input type="number" id="depositAmount" name="depositAmount" placeholder="Enter deposit amount">
+      <label for="balanceAmount">Balance Amount</label>
+      <input type="number" id="balanceAmount" name="balanceAmount" placeholder="Enter balance amount">
+      <label for="expectedStartDate">Expected Start Date</label>
+      <input type="date" id="expectedStartDate" name="expectedStartDate">
+      <label for="expectedCompletionDate">Expected Completion Date</label>
+      <input type="date" id="expectedCompletionDate" name="expectedCompletionDate">
+    </div>
 
-<div class="section">
-<h2>Master Service Agreement</h2>
-<ol>
-<li>Scope of Services</li>
-<li>Client Information Warranty</li>
-<li>Verification Rights</li>
-<li>Fees and Payment</li>
-<li>Refund Policy</li>
-<li>Confidentiality</li>
-<li>POPIA</li>
-<li>Intellectual Property</li>
-<li>Limitation of Liability</li>
-<li>Electronic Signatures</li>
-<li>Force Majeure</li>
-<li>Termination</li>
-<li>Governing Law</li>
-<li>Dispute Resolution</li>
-</ol>
-</div>
+    <div class="section">
+      <h2>Master Service Agreement</h2>
+      <ol>
+        <li>Scope of Services</li>
+        <li>Client Information Warranty</li>
+        <li>Verification Rights</li>
+        <li>Fees and Payment</li>
+        <li>Refund Policy</li>
+        <li>Confidentiality</li>
+        <li>POPIA</li>
+        <li>Intellectual Property</li>
+        <li>Limitation of Liability</li>
+        <li>Electronic Signatures</li>
+        <li>Force Majeure</li>
+        <li>Termination</li>
+        <li>Governing Law</li>
+        <li>Dispute Resolution</li>
+      </ol>
+    </div>
 
-<div id="annexureCompliance" class="section annexure">
-<h2>Annexure A – Compliance Services</h2>
-<p>Client responsible for accuracy of submissions. Regulatory outcomes not guaranteed.</p>
-</div>
+    <div id="annexureCompliance" class="section annexure">
+      <h2>Annexure A – Compliance Services</h2>
+      <p>Client responsible for accuracy of submissions. Regulatory outcomes not guaranteed.</p>
+    </div>
 
-<div id="annexureAdmin" class="section annexure">
-<h2>Annexure B – Administrative Services</h2>
-<p>Services executed on client instructions. Source data remains client responsibility.</p>
-</div>
+    <div id="annexureAdmin" class="section annexure">
+      <h2>Annexure B – Administrative Services</h2>
+      <p>Services executed on client instructions. Source data remains client responsibility.</p>
+    </div>
 
-<div id="annexureProcess" class="section annexure">
-<h2>Annexure C – Process Mapping & Business Improvement</h2>
-<p>Recommendations provided based on information available during engagement.</p>
-</div>
+    <div id="annexureProcess" class="section annexure">
+      <h2>Annexure C – Process Mapping & Business Improvement</h2>
+      <p>Recommendations provided based on information available during engagement.</p>
+    </div>
 
-<div id="annexureData" class="section annexure">
-<h2>Annexure D – Data Visualisation & Reporting</h2>
-<p>Outputs depend on data quality and completeness supplied by client.</p>
-</div>
+    <div id="annexureData" class="section annexure">
+      <h2>Annexure D – Data Visualisation & Reporting</h2>
+      <p>Outputs depend on data quality and completeness supplied by client.</p>
+    </div>
 
-<div id="annexureProject" class="section annexure">
-<h2>Annexure E – Project & Consulting Services</h2>
-<p>Scope changes require written approval and may affect fees and timelines.</p>
-</div>
+    <div id="annexureProject" class="section annexure">
+      <h2>Annexure E – Project & Consulting Services</h2>
+      <p>Scope changes require written approval and may affect fees and timelines.</p>
+    </div>
 
-<div class="section">
-<h2>Tasker247 Branding</h2>
-<div class="logo">
-    <img src="https://github.com/fkoete/sig.tasker247.com/blob/main/GBP_logo.png" alt="Tasker247 Logo" width="100">
-</a></div>
-<br>
-<div class="signature"><a href="https://fontmeme.com/calligraphy-fonts/"><img src="https://fontmeme.com/permalink/260623/79974a25.png" alt="calligraphy-fonts" border="0"></a></div>
-</div>
+    <div class="section">
+      <h2>Tasker247 Branding</h2>
+      <div class="logo">
+        <img src="https://github.com/fkoete/sig.tasker247.com/blob/main/GBP_logo.png" alt="Tasker247 Logo" width="100">
+        </a>
+      </div>
+      <br>
+      <div class="signature"><a href="https://fontmeme.com/calligraphy-fonts/"><img
+            src="https://fontmeme.com/permalink/260623/79974a25.png" alt="calligraphy-fonts" border="0"></a></div>
+    </div>
 
-<div class="signature-metadata">
+    <div class="signature-metadata">
 
-    Signed at:
-    Johannesburg, South Africa
+      Signed at:
+      Johannesburg, South Africa
 
-    <br><br>
+      <br><br>
 
-    On this
-    <span id="taskerSignatureDate"></span>
+      On this
+      <span id="taskerSignatureDate"></span>
 
-</div>
+    </div>
 
-<div class="section">
-<h2>Client Acceptance</h2>
-<label for="typedSignature">Typed Full Name (Electronic Signature)</label>
-<input type="text" id="typedSignature" name="typedSignature" placeholder="Type your full name">
-<label><input type="checkbox" name="truthConfirm"> I confirm all information supplied is true and accurate.</label>
-<label><input type="checkbox" name="agreementConfirm"> I accept the Master Services Agreement.</label>
-<label><input type="checkbox" name="consentConfirm"> I consent to electronic execution.</label>
-<p>Draw Signature Below</p>
-<canvas id="signaturePad"></canvas>
-<label>
-Place of Signature
-</label>
+    <div class="section">
+      <h2>Client Acceptance</h2>
+      <label for="typedSignature">Typed Full Name (Electronic Signature)</label>
+      <input type="text" id="typedSignature" name="typedSignature" placeholder="Type your full name">
+      <label><input type="checkbox" name="truthConfirm"> I confirm all information supplied is true and
+        accurate.</label>
+      <label><input type="checkbox" name="agreementConfirm"> I accept the Master Services Agreement.</label>
+      <label><input type="checkbox" name="consentConfirm"> I consent to electronic execution.</label>
+      <p>Draw Signature Below</p>
+      <canvas id="signaturePad"></canvas>
+      <label>
+        Place of Signature
+      </label>
 
-<input
-type="text"
-id="clientPlace"
-placeholder="City / Town">
-</div>
+      <input type="text" id="clientPlace" placeholder="City / Town">
+    </div>
 
-<div id="clientDateBlock">
+    <div id="clientDateBlock">
 
-    Signed at:
-    <span id="clientPlaceDisplay"></span>
+      Signed at:
+      <span id="clientPlaceDisplay"></span>
 
-    <br><br>
+      <br><br>
 
-    On this
-    <span id="clientSignatureDate"></span>
+      On this
+      <span id="clientSignatureDate"></span>
 
-</div>
+    </div>
 
-<div class="section">
-  <button type="submit">Sign and Submit</button>
-</div>
+    <div class="section">
+      <button type="submit">Sign and Submit</button>
+    </div>
 
 
 
-</form>
+  </form>
 
-<footer>
-<p>Tasker247 (Pty) Ltd</p>
-<p>support@tasker247.com</p>
-</footer>
+  <footer>
+    <p>Tasker247 (Pty) Ltd</p>
+    <p>helpdesk.info@tasker247.com</p>
+  </footer>
 
-<!-- Signature Pad Library - moved to end of body -->
-<script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+  <!-- Signature Pad Library - moved to end of body -->
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 
-<script>
+  <script>
 
-document.addEventListener("DOMContentLoaded", () => {
-  generateContractID();
-  initialiseClientType();
-  initialiseServiceSelection();
-  initialiseSignaturePad();
-});
+    document.addEventListener("DOMContentLoaded", () => {
+      generateContractID();
+      initialiseClientType();
+      initialiseServiceSelection();
+      initialiseSignaturePad();
+    });
 
-function generateContractID() {
-  const today = new Date();
-  const date = today.getFullYear() + String(today.getMonth()+1).padStart(2,'0') + String(today.getDate()).padStart(2,'0');
-  const random = Math.random().toString(16).substring(2,8).toUpperCase();
-  const contractID = `T247-${date}-${random}`;
-  document.getElementById("cid").textContent = contractID;
-}
-
-function initialiseClientType() {
-  const clientType = document.getElementById("clientType");
-  const individualBlock = document.getElementById("individualBlock");
-  const companyBlock = document.getElementById("companyBlock");
-
-  clientType.addEventListener("change", () => {
-    individualBlock.classList.add("hidden");
-    companyBlock.classList.add("hidden");
-
-    if(clientType.value === "individual") {
-      individualBlock.classList.remove("hidden");
+    function generateContractID() {
+      const today = new Date();
+      const date = today.getFullYear() + String(today.getMonth() + 1).padStart(2, '0') + String(today.getDate()).padStart(2, '0');
+      const random = Math.random().toString(16).substring(2, 8).toUpperCase();
+      const contractID = `T247-${date}-${random}`;
+      document.getElementById("cid").textContent = contractID;
     }
 
-    if(clientType.value === "company") {
-      companyBlock.classList.remove("hidden");
+    function initialiseClientType() {
+      const clientType = document.getElementById("clientType");
+      const individualBlock = document.getElementById("individualBlock");
+      const companyBlock = document.getElementById("companyBlock");
+
+      clientType.addEventListener("change", () => {
+        individualBlock.classList.add("hidden");
+        companyBlock.classList.add("hidden");
+
+        if (clientType.value === "individual") {
+          individualBlock.classList.remove("hidden");
+        }
+
+        if (clientType.value === "company") {
+          companyBlock.classList.remove("hidden");
+        }
+      });
     }
-  });
-}
 
-function initialiseServiceSelection() {
-  const service = document.getElementById("serviceType");
-  service.addEventListener("change", () => {
-    loadAnnexure(service.value);
-  });
-}
-
-function loadAnnexure(service) {
-  document.querySelectorAll(".annexure").forEach(a => {
-    a.classList.remove("active");
-  });
-
-  if(service) {
-    const annexure = document.getElementById("annexure" + capitalizeFirst(service));
-    if(annexure) {
-      annexure.classList.add("active");
+    function initialiseServiceSelection() {
+      const service = document.getElementById("serviceType");
+      service.addEventListener("change", () => {
+        loadAnnexure(service.value);
+      });
     }
-  }
-}
 
-function capitalizeFirst(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+    function loadAnnexure(service) {
+      document.querySelectorAll(".annexure").forEach(a => {
+        a.classList.remove("active");
+      });
 
-let signaturePad;
+      if (service) {
+        const annexure = document.getElementById("annexure" + capitalizeFirst(service));
+        if (annexure) {
+          annexure.classList.add("active");
+        }
+      }
+    }
 
-function initialiseSignaturePad() {
-  const canvas = document.getElementById("signaturePad");
-  if(typeof SignaturePad !== 'undefined') {
-    signaturePad = new SignaturePad(canvas);
-  } else {
-    console.warn("Signature Pad library not loaded");
-  }
-}
+    function capitalizeFirst(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
 
-function clearSignature() {
-  if(signaturePad) {
-    signaturePad.clear();
-  }
-}
+    let signaturePad;
 
-document.getElementById("contractForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  
-  if(signaturePad && !signaturePad.isEmpty()) {
-    alert("Contract submitted successfully!");
-  } else {
-    alert("Please sign the contract before submitting.");
-  }
-});
+    function initialiseSignaturePad() {
+      const canvas = document.getElementById("signaturePad");
+      if (typeof SignaturePad !== 'undefined') {
+        signaturePad = new SignaturePad(canvas);
+      } else {
+        console.warn("Signature Pad library not loaded");
+      }
+    }
 
-function ordinal(n){
+    function clearSignature() {
+      if (signaturePad) {
+        signaturePad.clear();
+      }
+    }
 
-    const s =
-        ["th","st","nd","rd"];
+    document.getElementById("contractForm").addEventListener("submit", (event) => {
+      event.preventDefault();
 
-    const v =
+      if (signaturePad && !signaturePad.isEmpty()) {
+        alert("Contract submitted successfully!");
+      } else {
+        alert("Please sign the contract before submitting.");
+      }
+    });
+
+    function ordinal(n) {
+
+      const s =
+        ["th", "st", "nd", "rd"];
+
+      const v =
         n % 100;
 
-    return n +
-    (
-        s[(v-20)%10]
-        ||
-        s[v]
-        ||
-        s[0]
-    );
-}
+      return n +
+        (
+          s[(v - 20) % 10]
+          ||
+          s[v]
+          ||
+          s[0]
+        );
+    }
 
-function getContractDate() {
+    function getContractDate() {
 
-    const d =
+      const d =
         new Date();
 
-    const day =
+      const day =
         ordinal(d.getDate());
 
-    const month =
+      const month =
         d.toLocaleString(
-            'default',
-            { month:'long' }
+          'default',
+          { month: 'long' }
         );
 
-    const year =
+      const year =
         d.getFullYear();
 
-    return `the ${day} day of ${month} ${year}`;
-}
+      return `the ${day} day of ${month} ${year}`;
+    }
 
 
-</script>
+  </script>
 
 </body>
+
 </html>
