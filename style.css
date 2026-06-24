@@ -1,0 +1,508 @@
+/* ==========================================
+   TASKER247 MASTER SERVICES AGREEMENT
+   PRODUCTION STYLESHEET
+========================================== */
+
+/* ========= ROOT VARIABLES ========= */
+
+:root {
+
+    --primary: #0a2540;
+    --primary-light: #163b64;
+
+    --secondary: #f4f7fb;
+
+    --success: #198754;
+
+    --danger: #dc3545;
+
+    --border: #d9dee5;
+
+    --text: #222;
+
+    --text-light: #666;
+
+    --white: #ffffff;
+
+    --shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+    --radius: 12px;
+
+}
+
+/* ========= RESET ========= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    background:
+        var(--secondary);
+
+    color:
+        var(--text);
+
+    line-height: 1.6;
+
+    padding: 20px;
+
+}
+
+/* ========= CONTAINER ========= */
+
+.container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+/* ========= HEADER ========= */
+
+header {
+
+    background: var(--white);
+
+    padding: 25px;
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    margin-bottom: 20px;
+
+}
+
+header h1 {
+
+    color: var(--primary);
+
+    margin-top: 15px;
+
+}
+
+#contractID {
+
+    font-weight: bold;
+
+    color: var(--primary);
+
+}
+
+/* ========= LOGO ========= */
+
+#taskerLogo {
+
+    max-height: 90px;
+
+    width: auto;
+
+}
+
+/* ========= PROGRESS TRACKER ========= */
+
+#progressTracker {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    flex-wrap: wrap;
+
+    position: sticky;
+
+    top: 10px;
+
+    z-index: 999;
+
+}
+
+.step {
+
+    flex: 1;
+
+    min-width: 130px;
+
+    text-align: center;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    background: #edf2f7;
+
+    color: var(--text-light);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+.step.active {
+
+    background: var(--primary);
+
+    color: white;
+
+}
+
+.step.complete {
+
+    background: var(--success);
+
+    color: white;
+
+}
+
+/* ========= SECTIONS ========= */
+
+section {
+
+    background: white;
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+}
+
+section h2 {
+
+    color: var(--primary);
+
+    margin-bottom: 15px;
+
+}
+
+/* ========= INPUTS ========= */
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 8px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    transition: all 0.2s ease;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    outline: none;
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(10,37,64,.15);
+
+}
+
+textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
+}
+
+/* ========= TWO COLUMN GRID ========= */
+
+.grid-2 {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+
+}
+
+/* ========= THREE COLUMN GRID ========= */
+
+.grid-3 {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
+
+}
+
+/* ========= CLAUSES ========= */
+
+.clause {
+
+    border-left:
+        4px solid var(--primary);
+
+    padding-left: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+.clause h3 {
+
+    color: var(--primary);
+
+    margin-bottom: 8px;
+
+}
+
+/* ========= ANNEXURES ========= */
+
+.annexure {
+
+    display: none;
+
+}
+
+.annexure.active {
+
+    display: block;
+
+}
+
+/* ========= CHECKBOXES ========= */
+
+.checkbox-group {
+
+    margin-top: 15px;
+
+}
+
+.checkbox-group label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+}
+
+.checkbox-group input {
+
+    width: auto;
+
+    margin-right: 10px;
+
+}
+
+/* ========= SIGNATURES ========= */
+
+.signature-container {
+
+    margin-top: 20px;
+
+}
+
+.signature-image {
+
+    max-height: 90px;
+
+    margin-bottom: 15px;
+
+}
+
+#signaturePad {
+
+    width: 100%;
+
+    height: 250px;
+
+    border: 2px dashed var(--border);
+
+    border-radius: 10px;
+
+    background: #fff;
+
+}
+
+/* ========= BUTTONS ========= */
+
+button {
+
+    background: var(--primary);
+
+    color: white;
+
+    border: none;
+
+    padding: 14px 24px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    transition: .2s;
+
+}
+
+button:hover {
+
+    background: var(--primary-light);
+
+}
+
+/* ========= VALIDATION ========= */
+
+.error {
+
+    color: var(--danger);
+
+    font-size: 13px;
+
+}
+
+.success {
+
+    color: var(--success);
+
+}
+
+/* ========= FOOTER ========= */
+
+footer {
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: var(--text-light);
+
+}
+
+/* ========= MOBILE ========= */
+
+@media (max-width: 768px) {
+
+    body {
+
+        padding: 10px;
+
+    }
+
+    .grid-2,
+    .grid-3 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    #progressTracker {
+
+        flex-direction: column;
+
+    }
+
+    .step {
+
+        width: 100%;
+
+    }
+
+    section {
+
+        padding: 18px;
+
+    }
+
+    header {
+
+        padding: 18px;
+
+    }
+
+    h1 {
+
+        font-size: 1.5rem;
+
+    }
+
+    h2 {
+
+        font-size: 1.2rem;
+
+    }
+
+    button {
+
+        width: 100%;
+
+    }
+
+}
+
+/* ========= PRINT / PDF ========= */
+
+@media print {
+
+    body {
+
+        background: white;
+
+    }
+
+    button {
+
+        display: none;
+
+    }
+
+    section {
+
+        box-shadow: none;
+
+        border: 1px solid #ddd;
+
+    }
+
+}
+
