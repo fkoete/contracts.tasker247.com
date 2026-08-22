@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasker247 Master Services Agreement</title>
+  <style>
+
+    /* ========= ROOT VARIABLES ========= */
+
+:root {
+
+    --primary: #0a2540;
+    --primary-light: #163b64;
+
+    --secondary: #f4f7fb;
+
+    --success: #198754;
+
+    --danger: #dc3545;
+
+    --border: #d9dee5;
+
+    --text: #222;
+
+    --text-light: #666;
+
+    --white: #ffffff;
+
+    --shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+    --radius: 12px;
+
+}
+
+/* ========= RESET ========= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    background:
+        var(--secondary);
+
+    color:
+        var(--text);
+
+    line-height: 1.6;
+
+    padding: 20px;
+
+}
+
+    /* ========= CONTAINER ========= */
+    
+    .container {
+    
+        max-width: 1200px;
+    
+        margin: auto;
+    
+    }
+    
+    /* ========= HEADER ========= */
+    
+    header {
+    
+        background: var(--white);
+    
+        padding: 25px;
+    
+        border-radius: var(--radius);
+    
+        box-shadow: var(--shadow);
+    
+        margin-bottom: 20px;
+    
+    }
+    
+    header h1 {
+    
+        color: var(--primary);
+    
+        margin-top: 15px;
+    
+    }
+    
+    .top-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: linear-gradient(135deg, #eef5ff, #f4f7fb);
+      border-radius: var(--radius, 12px);
+      padding: 16px 24px;
+      margin-bottom: 16px;
+    }
+    
+    .top-banner-text h1 {
+      margin: 0;
+      color: var(--primary, #0a2540);
+      font-size: 1.6rem;
+    }
+    
+    .top-banner-text p {
+      margin: 4px 0 0;
+      color: var(--text-light, #666);
+      font-size: 0.9rem;
+    }
+    
+    .top-banner-logo img {
+      height: 70px;      /* now the "big" logo */
+      width: auto;
+      display: block;
+    }
+    
+    .top-banner-logo img {
+      height: 70px;      /* this is the "reduced" logo size */
+      width: auto;
+      display: block;
+    }
+    
+    @media (max-width: 600px) {
+      .top-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .top-banner-logo img {
+        height: 70px;   /* scaled down from 70px, still bigger than the signature logo */
+      }
+    }
+
+    #contractID {
+    
+        font-weight: bold;
+    
+        color: var(--primary);
+    
+    }
+    
+    /* ========= LOGO ========= */
+    
+    #taskerLogo {
+    
+        max-height: 90px;
+    
+        width: auto;
+    
+    }
+    
+    /* ========= PROGRESS TRACKER ========= */
+    
+    #progressTracker {
+    
+        display: flex;
+    
+        gap: 10px;
+    
+        margin-top: 25px;
+    
+        flex-wrap: wrap;
+    
+        position: sticky;
+    
+        top: 10px;
+    
+        z-index: 999;
+    
+    }
+    
+    .step {
+    
+        flex: 1;
+    
+        min-width: 130px;
+    
+        text-align: center;
+    
+        padding: 12px;
+    
+        border-radius: 10px;
+    
+        background: #edf2f7;
+    
+        color: var(--text-light);
+    
+        font-size: 14px;
+    
+        font-weight: 600;
+    
+    }
+    
+    .step.active {
+    
+        background: var(--primary);
+    
+        color: white;
+    
+    }
+    
+    .step.complete {
+    
+        background: var(--success);
+    
+        color: white;
+    
+    }
+    
+    /* ========= SECTIONS ========= */
+    
+    section {
+    
+        background: white;
+    
+        border-radius: var(--radius);
+    
+        box-shadow: var(--shadow);
+    
+        padding: 25px;
+    
+        margin-bottom: 20px;
+    
+    }
+    
+    section h2 {
+    
+        color: var(--primary);
+    
+        margin-bottom: 15px;
+    
+    }
+    
+    /* ========= INPUTS ========= */
+    
+    input,
+    select,
+    textarea {
+    
+        width: 100%;
+    
+        padding: 12px;
+    
+        margin-top: 8px;
+    
+        margin-bottom: 15px;
+    
+        border: 1px solid var(--border);
+    
+        border-radius: 8px;
+    
+        font-size: 15px;
+    
+        transition: all 0.2s ease;
+    
+    }
+    
+    input:focus,
+    select:focus,
+    textarea:focus {
+    
+        outline: none;
+    
+        border-color: var(--primary);
+    
+        box-shadow:
+            0 0 0 3px
+            rgba(10,37,64,.15);
+    
+    }
+    
+    textarea {
+    
+        min-height: 120px;
+    
+        resize: vertical;
+    
+    }
+    
+    /* ========= TWO COLUMN GRID ========= */
+    
+    .grid-2 {
+    
+        display: grid;
+    
+        grid-template-columns:
+            1fr 1fr;
+    
+        gap: 20px;
+    
+    }
+    
+    /* ========= THREE COLUMN GRID ========= */
+    
+    .grid-3 {
+    
+        display: grid;
+    
+        grid-template-columns:
+            repeat(3,1fr);
+    
+        gap: 20px;
+    
+    }
+    
+    /* ========= CLAUSES ========= */
+    
+    .clause {
+    
+        border-left:
+            4px solid var(--primary);
+    
+        padding-left: 15px;
+    
+        margin-bottom: 20px;
+    
+    }
+    
+    .clause h3 {
+    
+        color: var(--primary);
+    
+        margin-bottom: 8px;
+    
+    }
+    
+    /* ========= ANNEXURES ========= */
+    
+    .annexure {
+    
+        display: none;
+    
+    }
+    
+    .annexure.active {
+    
+        display: block;
+    
+    }
+    
+    /* ========= CHECKBOXES ========= */
+    
+    .checkbox-group {
+    
+        margin-top: 15px;
+    
+    }
+    
+    .checkbox-group label {
+    
+        display: block;
+    
+        margin-bottom: 10px;
+    
+    }
+    
+    .checkbox-group input {
+    
+        width: auto;
+    
+        margin-right: 10px;
+    
+    }
+    
+    /* ========= SIGNATURES ========= */
+    
+    .signature-container {
+    
+        margin-top: 20px;
+    
+    }
+    
+    .signature-image {
+    
+        max-height: 90px;
+    
+        margin-bottom: 15px;
+    
+    }
+    
+    #signaturePad {
+    
+        width: 100%;
+    
+        height: 250px;
+    
+        border: 2px dashed var(--border);
+    
+        border-radius: 10px;
+    
+        background: #fff;
+    
+    }
+    
+    /* ========= BUTTONS ========= */
+    
+    button {
+    
+        background: var(--primary);
+    
+        color: white;
+    
+        border: none;
+    
+        padding: 14px 24px;
+    
+        border-radius: 10px;
+    
+        cursor: pointer;
+    
+        font-size: 16px;
+    
+        font-weight: 600;
+    
+        transition: .2s;
+    
+    }
+    
+    button:hover {
+    
+        background: var(--primary-light);
+    
+    }
+    
+    /* ========= VALIDATION ========= */
+    
+    .error {
+    
+        color: var(--danger);
+    
+        font-size: 13px;
+    
+    }
+    
+    .success {
+    
+        color: var(--success);
+    
+    }
+    
+    /* ========= FOOTER ========= */
+    
+    footer {
+    
+        text-align: center;
+    
+        padding: 20px;
+    
+        color: var(--text-light);
+    
+    }
+    
+    /* ========= MOBILE ========= */
+    
+    @media (max-width: 768px) {
+    
+        body {
+    
+            padding: 10px;
+    
+        }
+    
+        .grid-2,
+        .grid-3 {
+    
+            grid-template-columns: 1fr;
+    
+        }
+    
+        #progressTracker {
+    
+            flex-direction: column;
+    
+        }
+    
+        .step {
+    
+            width: 100%;
+    
+        }
+    
+        section {
+    
+            padding: 18px;
+    
+        }
+    
+        header {
+    
+            padding: 18px;
+    
+        }
+    
+        h1 {
+    
+            font-size: 1.5rem;
+    
+        }
+    
+        h2 {
+    
+            font-size: 1.2rem;
+    
+        }
+    
+        button {
+    
+            width: 100%;
+    
+        }
+    
+    }
+    
+    /* ========= PRINT / PDF ========= */
+    
+    @media print {
+    
+        body {
+    
+            background: white;
+    
+        }
+    
+        button {
+    
+            display: none;
+    
+        }
+    
+        section {
+    
+            box-shadow: none;
+    
+            border: 1px solid #ddd;
+    
+        }
+    
+    }
+    
+    
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+        background: #f5f7fa
+      }
+    
+      .header,
+      .section {
+        background: #fff;
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 14px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .1)
+      }
+    
+      /* ── PROGRESS BAR ── */
+      .progress-wrap {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #eef5ff;
+        padding: 10px 14px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+    
+      .progress-label {
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+    
+      .progress-bar-track {
+        background: #cdd9f0;
+        border-radius: 6px;
+        height: 10px;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 8px;
+      }
+    
+      .progress-bar-fill {
+        height: 10px;
+        background: #2196F3;
+        border-radius: 6px;
+        width: 0%;
+        transition: width 0.3s ease;
+      }
+    
+      /* ── STEP PILLS ── */
+      .step-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+    
+      .step {
+        padding: 6px 12px;
+        border-radius: 5px;
+        background: #e0e0e0;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+    
+      .step.active {
+        background: #2196F3;
+        color: white;
+      }
+    
+      .step.complete {
+        background: #4CAF50;
+        color: white;
+      }
+    
+      /* ── GENERAL ── */
+      .annexure {
+        display:none;
+    }
+    
+    .annexure.active {
+        display:block;
+    }
+    
+      label {
+        display: block;
+        font-weight: 700;
+        margin: 8px 0 4px
+      }
+    
+      input:not([type=checkbox]):not([type=radio]),
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 10px;
+        box-sizing: border-box;
+      }
+    
+      input[type="checkbox"],
+      input[type="radio"] {
+        width: auto;
+        margin: 0 8px 0 0;
+        vertical-align: middle;
+      }
+    
+      .logo,
+      .signature-block {
+        border: 1px dashed #888;
+        padding: 8px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .logo img {
+        max-width: 100%;
+        max-height: 40px;   /* now the "small" logo, was 120px */
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+    
+      canvas {
+        border: 1px solid #555;
+        width: 100%;
+        height: 180px;
+        display: block;
+        touch-action: none;
+      }
+    
+      button {
+        padding: 12px 18px
+      }
+    
+      /* ── ANNEXURES ── */
+      .annexure {
+        display: none
+      }
+    
+
+      .hidden {
+        display: none !important;
+      }
+
+      .annexure.active {
+        display: block
+      }
+    
+      /* ── SIGNATURE DATE BLOCKS ── */
+      .signature-metadata,
+      #clientDateBlock {
+        background: #fff;
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 14px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+        font-style: italic;
+        color: #333;
+      }
+    
+      .date-display {
+        font-weight: bold;
+        color: #1565c0;
+      }
+    
+      @media(max-width:600px) {
+        body {
+          padding: 10px
+        }
+      }
+    
+     </style>   
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="top-banner">
+      <div class="top-banner-text">
+        <h1>Master Services Agreement</h1>
+        <!--<p>Boilerplate prototype for testing and UX validation.</p>-->
+      </div>
+      <div class="top-banner-logo">
+        <img src="https://raw.githubusercontent.com/fkoete/sig.tasker247.com/main/logo.png" alt="Tasker247 Logo">
+      </div>
+    </div>
+  
+    <p><strong>Contract ID:</strong> <span id="cid"></span></p>
+  
+    <!-- Progress bar + label -->
+    <div class="progress-wrap">
+      <div class="progress-label" id="progressLabel">Progress: 0% — Step: Client Details</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+      <div class="step-row" id="progressSteps">
+        <div class="step active" data-step="0">Client Details</div>
+        <div class="step" data-step="1">Services</div>
+        <div class="step" data-step="2">Commercial</div>
+        <div class="step" data-step="3">Agreement</div>
+        <div class="step" data-step="4">Signature</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════
+       IMPORTANT: Replace YOUR_FORMSPREE_ID below
+       with your actual Formspree form ID, e.g. xpwzknab
+       Get one free at https://formspree.io
+  ════════════════════════════════════════════════ -->
+  <form id="contractForm" action="https://formspree.io/f/mvzjzdzy" method="POST">
+
+
+    <!-- ── STEP 0: CLIENT DETAILS ── -->
+    <div class="section" data-section="0">
+      <h2>Client Information</h2>
+      <label for="clientType">Select Client Type</label>
+      <select id="clientType" name="clientType">
+        <option value="">Select Client Type</option>
+        <option value="individual">Individual</option>
+        <option value="company">Organisation / Company</option>
+      </select>
+
+      <div id="individualBlock" class="hidden">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+        <label for="idNumber">ID / Passport Number</label>
+        <input type="text" id="idNumber" name="idNumber" placeholder="Enter your ID number">
+        <label for="indContact">Contact Number</label>
+        <input type="text" id="indContact" name="indContact" placeholder="Enter your contact number">
+      </div>
+
+      <div id="companyBlock" class="hidden">
+        <label for="companyName">Company Name</label>
+        <input type="text" id="companyName" name="companyName" placeholder="Enter company name">
+        <label for="registrationNumber">Registration Number</label>
+        <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter registration number">
+        <label for="representativeName">Representative Name</label>
+        <input type="text" id="representativeName" name="representativeName" placeholder="Enter representative name">
+        <label for="representativeID">Representative ID</label>
+        <input type="text" id="representativeID" name="representativeID" placeholder="Enter representative ID">
+        <label for="representativePosition">Representative Position</label>
+        <input type="text" id="representativePosition" name="representativePosition"
+          placeholder="Enter representative position">
+      </div>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter email address">
+      <label for="telephone">Telephone</label>
+      <input type="tel" id="telephone" name="telephone" placeholder="Enter telephone number">
+      <label for="physicalAddress">Physical Address</label>
+      <textarea id="physicalAddress" name="physicalAddress" placeholder="Enter physical address"></textarea>
+    </div>
+
+    <!-- ── STEP 1: SERVICES ── -->
+    <div class="section" data-section="1">
+      <h2>Service Selection</h2>
+      <label for="serviceType">Select Service</label>
+      <select id="serviceType" name="serviceType">
+        <option value="">Select Service</option>
+        <option value="compliance">Compliance Services</option>
+        <option value="admin">Administrative Services</option>
+        <option value="process">Process Mapping &amp; Business Improvement</option>
+        <option value="data">Data Visualization &amp; Reporting</option>
+        <option value="project">Project &amp; Consulting Services</option>
+      </select>
+    </div>
+
+    <!-- ── STEP 2: COMMERCIAL TERMS ── -->
+    <div class="section" data-section="2">
+      <h2>Commercial Terms</h2>
+      <label for="projectValue">Project Value</label>
+      <input type="number" id="projectValue" name="projectValue" placeholder="Enter project value">
+      <label for="depositAmount">Deposit Amount</label>
+      <input type="number" id="depositAmount" name="depositAmount" placeholder="Enter deposit amount">
+      <label for="balanceAmount">Balance Amount</label>
+      <input type="number" id="balanceAmount" name="balanceAmount" placeholder="Enter balance amount">
+      <label for="expectedStartDate">Expected Start Date</label>
+      <input type="date" id="expectedStartDate" name="expectedStartDate">
+      <label for="expectedCompletionDate">Expected Completion Date</label>
+      <input type="date" id="expectedCompletionDate" name="expectedCompletionDate">
+    </div>
+
+
+
+    
+    <!-- ── STEP 3: AGREEMENT ── -->
+    <section id="masterAgreement">
+    <div id="msaContent">
+    <div class="section" data-section="3">
+      <h2>Master Service Agreement</h2>
+      <ol>
+        <h3><strong>Scope of Services</strong></h3>
+        <p>The Service Provider agrees to render services as requested by the Client, including but not limited to administrative, compliance, business support, and related services as outlined in written communication, quotation, or proposal.</p>
+        <br>
+        <h3><strong>Client Information Disclosure</strong></h3>
+        <p>The Client warrants that all information, documentation, and instructions provided are accurate, complete, and truthful.</p>
+          <br>
+          <li>The Service Provider shall not be held liable for:</li>
+          
+          Errors, delays, or unsuccessful outcomes arising from incorrect, incomplete, or misleading information supplied by the Client.</p>
+        <br>
+          <h3><strong>Verification of Information</strong></h3>
+        <p>All compliance-related and submitted documentation will be subject to verification prior to the commencement of services.
+
+          <p>The Service Provider reserves the right to:</p>
+          
+          <li>Delay or suspend services pending verification</li>
+          <li>Reject engagement where documentation is deemed insufficient or non-compliant</li>
+          <br>
+          <li><strong>Fees and Payment</strong></li>
+        <p>A non-refundable deposit or (as when agreed in principle) an up-front payment is required prior to commencement of any work.
+          The remaining balance shall be payable as per the agreed quotation or milestone structure.
+          <br>
+          Failure to make payment may result in suspension or termination of services.</p>
+          <br>
+          <li><strong>Refund & Work Allocation Policy</strong></li>
+        <p>In the event that services cannot be successfully completed due to:
+          <br>
+          Client’s failure to provide accurate or complete information, or
+          Client’s non-compliance with requirements
+          
+          The Service Provider shall:
+          
+          Retain a reasonable portion of fees proportional to the work already completed
+          Refund any remaining balance at its discretion, less administrative and operational costs</p>
+        <li>Confidentiality</li>
+        <p>Both parties agree to keep all shared information confidential and not disclose it to third parties without consent, except where required by law.</p>
+        <li>POPIA</li>
+        <p></p>
+        <li>Intellectual Property</li>
+        <p>he Supplier acknowledges that it may, during the course of this Contract, come
+          into possession, or gain knowiedge, of Intellectual Property owned by or licensed
+          to the Company. The Supplier acknowledges further that all right, title and interest
+          in and to all such Intellectual Property shall, at all times, remain the exclusive
+          property of the Company (or its licensor, as the case may be) and that they shall
+          not acquire any right to, or be entitled to use, any such intellectual Property in any
+          manner unless specifically authorized in writing to do so by the Company.</p>
+
+          <p>ll Intellectual Property created, developed, devised or acquired pursuant to this
+            Contract, either by the Supplier and the Company jointly, shall be owned by the
+            Company. To the extent that any such Intellectual Property does not automatically
+            vest in the Company, the Supplier, to the extent that it is legally entitled to do so,
+            hereby assigns to the Company, all of its rights, title and interest in and to such
+            Intellectual Property. The Supplier furthermore undertakes to sign all documents
+            and provide all reasonable assistance required by the Company to give effect to
+            any such assignment and/or to allow the Company to register any relevant
+            Intellectual Property in its own name and/or to prove its title or enforce its rights to
+            such Intellectual Property</p>
+
+            <p>he Supplier undertakes to keep confidential, and not to disclose, any Intellectual
+              Property supplied by the Company, or which comes into its possession or
+              knowledge as a result of this Contract</p>
+
+              <p>he Supplier undertakes to use the Company's trademark only with the prior
+                written approval of the Company, and strictly in accordance with any requirements
+                specified by the Company from time to time and in no manner for any purpose
+                inconsistent with this Contract</p>
+
+                <p>The Supplier shall immediately cease using any of the Company's materials,
+                  trademarks or other Intellectual Property upon the termination of this Contract for
+                  any reason whatsoever and shall return all such property to the Company as soon
+                  as is reasonably practicable thereafter</p>
+        <li>Limitation of Liability</li>
+        <p>To the fullest extent permitted by law:
+
+          The Service Provider shall not be liable for indirect, incidental, or consequential damages
+          Liability is limited to the amount paid by the Client for the specific service</p>
+        <li>Electronic Signatures</li>
+        <li>Force Majeure</li>
+        <p>Delay or failure to comply with or breach of any of the terms and conditions of this
+          Contract if occasioned by or resulting from an act of God or public enemy, fire,
+          explosion, earthquake, perils of the sea, flood, storm or other adverse weather
+          conditions, war, revolution, civil commotion or other civil strikes, riot, strikes,
+          blockage, embargo, sanctions, epidemics, pandemics, Government enforced
+          pandemic lock downs and similar events, act of any government or under
+          authority, compliance, with any government orders, demands or regulations, or
+          any circumstances of like or different nature beyond the reasonable control of the
+          Party so failing (Force Majeure Event), will not be deemed to be a breach of this
+          Contract nor will it subject either Party to incur any liability to the other.</p>
+
+          <p>Should the Company be prevented from carrying out its contractual obligations by
+            any Force Majeure Event, which lasts continuously for a period of 21 (twenty-one)
+            Business Days, the Company shall be entitled to terminate the Contract on written
+            notice to the Supplier.</p>
+
+            <p>It shall be incumbent upon the Client to immediately notify the Company in
+              writing of any inability to fulfil its obligations in terms of this Contract by reason of
+              any of the circumstances set out in this clause</p>
+        <li>Termination</li>
+        <p>Either party may terminate this Agreement in writing.
+          Upon termination:
+          
+          The Service Provider shall be entitled to payment for work already performed
+          Any applicable refunds will be processed in accordance with Clause 5</p>
+        <li>Governing Law</li>
+        <p>This Agreement shall be governed by the laws of the Republic of South Africa.</p>
+        <li>Dispute Resolution</li>
+        <p>Negotiation: If any dispute arises out of or relates to this Agreement, the parties shall first try to resolve it by direct good-faith negotiation. Either party may give written notice to the other to start this process, and senior representatives of the parties shall meet within 7 (seven) business days of the notice to resolve the dispute.</p>
+        <p>Mediation: If the dispute is not resolved by negotiation within 14 (fourteen) business days of the initial notice, the parties shall submit the dispute to administered mediation under the rules of the Arbitration Foundation of Southern Africa (AFSA).</p>
+        <p>Arbitration: If the mediation fails or is not completed within 30 (thirty) days of referral, the remaining dispute shall be settled by binding arbitration. The arbitration shall be held in South Africa, conducted in English, and administered by AFSA under its current commercial arbitration rules.</p>
+        <p>Urgent Relief: Nothing in this clause prevents any party from seeking urgent interim relief or a court interdict from the High Court of South Africa while the dispute process is ongoing.</p>
+      </ol>
+    </div>
+  </div>  
+  </section>
+
+    <!-- Annexures (shown based on service selection) -->
+    <div id="annexureCompliance" class="section annexure hidden">
+      <h2>Annexure A – Compliance Services</h2>
+      <p>Client responsible for accuracy of submissions. Regulatory outcomes not guaranteed.</p>
+    </div>
+    <div id="annexureAdmin" class="section annexure hidden">
+      <h2>Annexure B – Administrative Services</h2>
+      <p>Services executed on client instructions. Source data remains client responsibility.</p>
+    </div>
+    <div id="annexureProcess" class="section annexure hidden">
+      <h2>Annexure C – Process Mapping &amp; Business Improvement</h2>
+      <p>Recommendations provided based on information available during engagement.</p>
+    </div>
+    <div id="annexureData" class="section annexure hidden">
+      <h2>Annexure D – Data Visualisation &amp; Reporting</h2>
+      <p>Outputs depend on data quality and completeness supplied by client.</p>
+    </div>
+    <div id="annexureProject" class="section annexure hidden">
+      <h2>Annexure E – Project &amp; Consulting Services</h2>
+      <p>Scope changes require written approval and may affect fees and timelines.</p>
+    </div>
+
+    <!-- ── TASKER247 BRANDING & PRE-SIGNED BLOCK ── -->
+    <div class="section">
+      
+      <div class="logo">
+        <img src="https://raw.githubusercontent.com/fkoete/sig.tasker247.com/main/logo.png" alt="Tasker247 Logo">
+      </div>
+      <br>
+
+      <h3>for and on behalf of Tasker247</h3>
+
+      <div class="signature-block">
+      
+        <a href="https://fontmeme.com/calligraphy-fonts/"><img src="https://fontmeme.com/permalink/260709/e29d91e2.png" alt="calligraphy-fonts" border="0"></a>
+      </div>
+    </div>
+
+    <!-- Tasker247 signed-at block — date auto-generated on page load -->
+    <div class="signature-metadata">
+      Signed at: <strong>Pretoria, South Africa</strong>
+      <br><br>
+      On this <span class="date-display" id="taskerSignatureDate">[date will appear here]</span>
+    </div>
+
+    <!-- ── STEP 4: CLIENT ACCEPTANCE ── -->
+    <div class="section" data-section="4">
+      <h2>Client Acceptance</h2>
+      <label for="typedSignature">Typed Full Name (Electronic Signature)</label>
+      <input type="text" id="typedSignature" name="typedSignature" placeholder="Type your full name">
+
+      <label><input type="checkbox" name="truthConfirm" id="truthConfirm"> I confirm all information supplied is true and accurate.</label>
+      <label><input type="checkbox" name="agreementConfirm" id="agreementConfirm"> I accept the Master Services Agreement.</label>
+      <label><input type="checkbox" name="consentConfirm" id="consentConfirm"> I consent to electronic execution.</label>
+
+      <p>Draw Signature Below</p>
+      <canvas id="signaturePad"></canvas>
+      <button type="button" onclick="clearSignature()" style="margin-top:6px;padding:6px 14px;font-size:13px;">Clear Signature</button>
+
+      <label style="margin-top:12px;">Place of Signature</label>
+      <input type="text" id="clientPlace" name="clientPlace" placeholder="City / Town">
+
+      <!-- Hidden fields to carry signature data on submit -->
+      <input type="hidden" id="signatureDataField" name="signatureData">
+      <input type="hidden" id="contractDateField" name="contractDate">
+
+      <!-- Hidden audit fields — invisible to client, visible in Formspree submission -->
+      <input type="hidden" id="contractIDField" name="contractID">
+      <input type="hidden" id="signingTimestamp" name="signingTimestamp">
+      <input type="hidden" id="contractVersion" name="contractVersion" value="MSA v1.0">
+      <input type="hidden" id="annexureVersion" name="annexureVersion">
+      <textarea id="contractBody" name="contractBody" hidden></textarea>
+      <input type="hidden" id="scopeOfServicesField" name="scopeOfServices">
+      <input type="hidden" id="clientIPField" name="clientIP">
+    </div>
+
+    <!-- Client signed-at block — date auto-generated when canvas is first drawn on -->
+    <div id="clientDateBlock" class="signature-metadata">
+      Signed at: <span id="clientPlaceDisplay"><em>(place not yet entered)</em></span>
+      <br><br>
+      On this <span class="date-display" id="clientSignatureDate">[date will appear once you sign]</span>
+    </div>
+
+    <div class="section">
+      <button type="submit">Sign and Submit</button>
+    </div>
+
+  </form>
+
+  <footer style="margin-top:20px;text-align:center;color:#666;font-size:13px;">
+    <p>Tasker247 (Pty) Ltd</p>
+    <p>helpdesk.info@tasker247.com</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+
+  <script>
+    /* ════════════════════════════════════════════
+       UTILITY: ordinal date string
+    ════════════════════════════════════════════ */
+    function ordinal(n) {
+      const s = ["th", "st", "nd", "rd"];
+      const v = n % 100;
+      return n + (s[(v - 20) % 10] || s[v] || s[0]);
+    }
+
+    function getContractDate() {
+      const d = new Date();
+      return `the ${ordinal(d.getDate())} day of ${d.toLocaleString('default', { month: 'long' })} ${d.getFullYear()}`;
+    }
+
+    /* ════════════════════════════════════════════
+       CONTRACT ID
+    ════════════════════════════════════════════ */
+    function generateContractID() {
+      const today = new Date();
+      const date = today.getFullYear()
+        + String(today.getMonth() + 1).padStart(2, '0')
+        + String(today.getDate()).padStart(2, '0');
+      const random = Math.random().toString(16).substring(2, 8).toUpperCase();
+      const id = `T247-${date}-${random}`;
+      document.getElementById("cid").textContent = id;
+      // Also pre-fill the hidden contractID field so it travels with the POST
+      document.getElementById("contractIDField").value = id;
+    }
+
+    /* ════════════════════════════════════════════
+       ISO 8601 TIMESTAMP  (SAST = UTC+02:00)
+       Produces: 2026-06-24T10:46:23+02:00
+    ════════════════════════════════════════════ */
+    function getISOTimestamp() {
+      const now = new Date();
+      // Use the browser's local offset so the form works correctly
+      // even if the client is outside SAST — you'll see their real local time.
+      const tzOffset = -now.getTimezoneOffset(); // minutes
+      const sign = tzOffset >= 0 ? "+" : "-";
+      const absOff = Math.abs(tzOffset);
+      const hh = String(Math.floor(absOff / 60)).padStart(2, "0");
+      const mm = String(absOff % 60).padStart(2, "0");
+      const pad = n => String(n).padStart(2, "0");
+      return `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`
+           + `T${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`
+           + `${sign}${hh}:${mm}`;
+    }
+
+    /* ════════════════════════════════════════════
+       IP ADDRESS FETCH (on page load, silent)
+       Uses api.ipify.org — free, no key needed.
+       Stored in hidden field; sent with form POST.
+    ════════════════════════════════════════════ */
+    function fetchClientIP() {
+      fetch("https://api.ipify.org?format=json")
+        .then(r => r.json())
+        .then(data => {
+          document.getElementById("clientIPField").value = data.ip || "unavailable";
+        })
+        .catch(() => {
+          document.getElementById("clientIPField").value = "unavailable";
+        });
+    }
+
+    /* ════════════════════════════════════════════
+       PROGRESS TRACKER
+       — Step boundaries defined by which section
+         fields have been touched / filled.
+       Steps: 0=Client, 1=Services, 2=Commercial,
+              3=Agreement (auto-complete), 4=Signature
+    ════════════════════════════════════════════ */
+
+    const STEP_LABELS = [
+      "Client Details",
+      "Services",
+      "Commercial",
+      "Agreement",
+      "Signature"
+    ];
+
+    // Fields that count toward each step (by element id)
+    const STEP_FIELDS = [
+      // Step 0 – Client Details: at minimum email is required
+      ["clientType", "email", "telephone", "physicalAddress"],
+      // Step 1 – Services
+      ["serviceType"],
+      // Step 2 – Commercial
+      ["projectValue", "depositAmount", "expectedStartDate", "expectedCompletionDate"],
+      // Step 3 – Agreement: auto-counted as complete once step 2 is done (user has scrolled past it)
+      [],
+      // Step 4 – Signature
+      ["typedSignature", "truthConfirm", "agreementConfirm", "consentConfirm", "clientPlace"]
+    ];
+
+    function countFilledInStep(stepIndex) {
+      const fields = STEP_FIELDS[stepIndex];
+      if (fields.length === 0) return 1; // Agreement step auto-completes
+      let filled = 0;
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (el.type === "checkbox") {
+          if (el.checked) filled++;
+        } else {
+          if (el.value && el.value.trim() !== "" && el.value !== "0") filled++;
+        }
+      });
+      return filled;
+    }
+
+    function totalInStep(stepIndex) {
+      const fields = STEP_FIELDS[stepIndex];
+      return fields.length === 0 ? 1 : fields.length;
+    }
+
+    function updateProgress() {
+      const totalFields = STEP_FIELDS.reduce((sum, arr) => sum + (arr.length === 0 ? 1 : arr.length), 0);
+      let totalFilled = 0;
+      let activeStep = 0;
+
+      for (let i = 0; i < STEP_FIELDS.length; i++) {
+        const filled = countFilledInStep(i);
+        const total = totalInStep(i);
+        totalFilled += filled;
+        // Step is "complete" when all its fields are filled
+        if (filled >= total && i >= activeStep) {
+          activeStep = i + 1;
+        }
+      }
+
+      // Also include canvas signature in step 4 check
+      if (signaturePad && !signaturePad.isEmpty()) {
+        totalFilled += 1;
+      }
+      const grandTotal = totalFields + 1; // +1 for canvas sig
+      const pct = Math.min(100, Math.round((totalFilled / grandTotal) * 100));
+
+      // Clamp activeStep
+      if (activeStep > 4) activeStep = 4;
+
+      // Update bar
+      document.getElementById("progressBarFill").style.width = pct + "%";
+      document.getElementById("progressLabel").textContent =
+        `Progress: ${pct}% — Step: ${STEP_LABELS[activeStep] || "Complete"}`;
+
+      // Update step pills
+      document.querySelectorAll(".step").forEach(el => {
+        const s = parseInt(el.dataset.step, 10);
+        el.classList.remove("active", "complete");
+        if (s < activeStep) el.classList.add("complete");
+        else if (s === activeStep) el.classList.add("active");
+      });
+    }
+
+    /* ════════════════════════════════════════════
+       CLIENT TYPE TOGGLE
+    ════════════════════════════════════════════ */
+    function initClientType() {
+      const clientType = document.getElementById("clientType");
+      const individualBlock = document.getElementById("individualBlock");
+      const companyBlock = document.getElementById("companyBlock");
+    
+      function clearFields(block) {
+        block.querySelectorAll("input, textarea, select").forEach(el => {
+          el.value = "";
+        });
+      }
+    
+      function hideBlock(block) {
+        block.classList.add("hidden");
+        clearFields(block);
+        block.querySelectorAll("input, textarea, select").forEach(el => {
+          el.disabled = true; // disabled fields are excluded from form submission
+        });
+      }
+    
+      function showBlock(block) {
+        block.classList.remove("hidden");
+        block.querySelectorAll("input, textarea, select").forEach(el => {
+          el.disabled = false;
+        });
+      }
+    
+      clientType.addEventListener("change", () => {
+        hideBlock(individualBlock);
+        hideBlock(companyBlock);
+    
+        if (clientType.value === "individual") showBlock(individualBlock);
+        if (clientType.value === "company") showBlock(companyBlock);
+    
+        updateProgress();
+      });
+    
+      // Make sure both start hidden/disabled on page load, before any selection
+      hideBlock(individualBlock);
+      hideBlock(companyBlock);
+    }
+
+    function buildContractBody() {
+      const parts = [];
+    
+      const clientType = document.getElementById("clientType").value;
+      const serviceSelect = document.getElementById("serviceType");
+      const serviceLabel = serviceSelect.options[serviceSelect.selectedIndex]?.text || "(not selected)";
+    
+      parts.push(`CLIENT TYPE: ${clientType || "(not selected)"}`);
+      parts.push(`SERVICE SELECTED: ${serviceLabel}`);
+
+      // Capture scope of services as a labelled block in the contract body
+      const scopeEl = document.querySelector('#msaContent .section[data-section="3"] p');
+      if (scopeEl) {
+        parts.push(`SCOPE OF SERVICES: ${scopeEl.textContent.trim()}`);
+      }
+      parts.push("");
+    
+      const msa = document.getElementById("msaContent");
+      if (msa) {
+        parts.push("=== MASTER SERVICE AGREEMENT ===");
+        parts.push(msa.innerText.trim());
+        parts.push("");
+      }
+    
+      const activeAnnexure = document.querySelector(".annexure.active");
+      if (activeAnnexure) {
+        parts.push("=== APPLICABLE ANNEXURE ===");
+        parts.push(activeAnnexure.innerText.trim());
+        parts.push("");
+      }
+    
+      return parts.join("\n");
+    }
+
+
+    /* ════════════════════════════════════════════
+       SERVICE / ANNEXURE TOGGLE
+    ════════════════════════════════════════════ */
+    function initServiceSelection() {
+      const service = document.getElementById("serviceType");
+      service.addEventListener("change", () => {
+        document.querySelectorAll(".annexure").forEach(a => a.classList.remove("active"));
+        if (service.value) {
+          const ann = document.getElementById(
+            "annexure" + service.value.charAt(0).toUpperCase() + service.value.slice(1)
+          );
+          if (ann) ann.classList.add("active");
+        }
+        updateProgress();
+      });
+    }
+
+    /* ════════════════════════════════════════════
+       DYNAMIC ANNEXURE LOADING
+    ════════════════════════════════════════════ */
+    function loadAnnexure(service){
+
+      document
+          .querySelectorAll(".annexure")
+          .forEach(a=>{
+  
+              a.classList.remove("active");
+  
+          });
+  
+      const annexure =
+          document.getElementById(
+              `annexure-${service}`
+          );
+  
+      if(annexure){
+  
+          annexure.classList.add("active");
+  
+          currentAnnexure =
+              annexure.innerText;
+  
+          currentAnnexureVersion =
+              "v1.0";
+  
+          document
+              .getElementById("annexureVersion")
+              .value =
+              currentAnnexureVersion;
+      }
+  }
+
+    /* ════════════════════════════════════════════
+       LIVE "PLACE" DISPLAY
+    ════════════════════════════════════════════ */
+    function initClientPlace() {
+      document.getElementById("clientPlace").addEventListener("input", function () {
+        const display = document.getElementById("clientPlaceDisplay");
+        display.innerHTML = this.value
+          ? `<strong>${this.value}</strong>`
+          : "<em>(place not yet entered)</em>";
+        updateProgress();
+      });
+    }
+
+    /* ════════════════════════════════════════════
+       SIGNATURE PAD
+    ════════════════════════════════════════════ */
+    let signaturePad;
+    let clientDateSet = false;
+
+    function initSignaturePad() {
+  const canvas = document.getElementById("signaturePad");
+  if (typeof SignaturePad !== 'undefined') {
+    signaturePad = new SignaturePad(canvas, {
+      backgroundColor: 'rgb(255,255,255)'
+    });
+
+    signaturePad.addEventListener("afterUpdateStroke", () => {
+      if (!clientDateSet) {
+        document.getElementById("clientSignatureDate").textContent = getContractDate();
+        clientDateSet = true;
+      }
+      updateProgress();
+    });
+
+    function resizeCanvas() {
+      const ratio = Math.max(window.devicePixelRatio || 1, 1);
+
+      // Save whatever's drawn BEFORE the resize destroys the bitmap
+      const savedData = signaturePad.isEmpty() ? null : signaturePad.toData();
+
+      canvas.width = canvas.offsetWidth * ratio;
+      canvas.height = canvas.offsetHeight * ratio;
+      canvas.getContext("2d").scale(ratio, ratio);
+
+      if (savedData) {
+        // Restore the signature instead of clearing it
+        signaturePad.fromData(savedData);
+      } else {
+        signaturePad.clear();
+        clientDateSet = false;
+        document.getElementById("clientSignatureDate").textContent = "[date will appear once you sign]";
+      }
+      updateProgress();
+    }
+
+    // Debounce so rapid-fire resize events (mobile scroll/keyboard) don't
+    // thrash the canvas repeatedly
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resizeCanvas, 150);
+    });
+
+    resizeCanvas(); // initial sizing on load
+  } else {
+    console.warn("Signature Pad library not loaded");
+  }
+}
+
+    /* ════════════════════════════════════════════
+       ATTACH CHANGE LISTENERS TO ALL TRACKED FIELDS
+    ════════════════════════════════════════════ */
+    function attachFieldListeners() {
+      const allIds = STEP_FIELDS.flat();
+      allIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener(el.type === "checkbox" ? "change" : "input", updateProgress);
+      });
+    }
+
+    /* ════════════════════════════════════════════
+       FORM SUBMIT
+    ════════════════════════════════════════════ */
+    document.getElementById("contractForm").addEventListener("submit", function (e) {
+      // Validate signature
+      if (!signaturePad || signaturePad.isEmpty()) {
+        e.preventDefault();
+        alert("Please draw your signature before submitting.");
+        return;
+      }
+
+      // Validate checkboxes
+      const checks = ["truthConfirm", "agreementConfirm", "consentConfirm"];
+      for (const id of checks) {
+        if (!document.getElementById(id).checked) {
+          e.preventDefault();
+          alert("Please tick all three confirmation checkboxes before submitting.");
+          return;
+        }
+      }
+
+      // Embed signature image and date into hidden fields before POST
+      document.getElementById("contractBody").value = buildContractBody();
+      document.getElementById("signatureDataField").value = signaturePad.toDataURL();
+      document.getElementById("contractDateField").value = getContractDate();
+      document.getElementById("signingTimestamp").value = getISOTimestamp();
+
+      // Populate scope of services as a standalone Formspree field
+      const scopeSection = document.querySelector('#msaContent .section[data-section="3"] p');
+      document.getElementById("scopeOfServicesField").value = scopeSection ? scopeSection.textContent.trim() : "";
+
+      // If Formspree ID hasn't been replaced, show reminder and prevent submit
+      if (this.action.includes("YOUR_FORMSPREE_ID")) {
+        e.preventDefault();
+        alert("Please replace YOUR_FORMSPREE_ID in the form's action attribute with your actual Formspree form ID before going live.");
+        return;
+      }
+
+      // Normal Formspree POST will proceed
+    });
+
+    /* ════════════════════════════════════════════
+       INIT ON DOM READY
+    ════════════════════════════════════════════ */
+    document.addEventListener("DOMContentLoaded", () => {
+      generateContractID();
+      fetchClientIP(); // silently fetch and store client IP on page load
+
+      // Set Tasker247 signed date immediately (document date)
+      document.getElementById("taskerSignatureDate").textContent = getContractDate();
+
+      initClientType();
+      initServiceSelection();
+      initClientPlace();
+      initSignaturePad();
+      attachFieldListeners();
+      updateProgress(); // draw initial state
+    });
+  </script>
+
+</body>
+</html>

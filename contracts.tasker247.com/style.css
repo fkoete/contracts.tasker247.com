@@ -1,0 +1,727 @@
+/* ==========================================
+   TASKER247 MASTER SERVICES AGREEMENT
+   PRODUCTION STYLE SHEET
+========================================== */
+
+/* ========= ROOT VARIABLES ========= */
+
+:root {
+
+    --primary: #0a2540;
+    --primary-light: #163b64;
+
+    --secondary: #f4f7fb;
+
+    --success: #198754;
+
+    --danger: #dc3545;
+
+    --border: #d9dee5;
+
+    --text: #222;
+
+    --text-light: #666;
+
+    --white: #ffffff;
+
+    --shadow:
+        0 4px 12px rgba(0,0,0,0.08);
+
+    --radius: 12px;
+
+}
+
+/* ========= RESET ========= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    background:
+        var(--secondary);
+
+    color:
+        var(--text);
+
+    line-height: 1.6;
+
+    padding: 20px;
+
+}
+
+/* ========= CONTAINER ========= */
+    
+    .container {
+    
+        max-width: 1200px;
+    
+        margin: auto;
+    
+    }
+    
+    /* ========= HEADER ========= */
+    
+    header {
+    
+        background: var(--white);
+    
+        padding: 25px;
+    
+        border-radius: var(--radius);
+    
+        box-shadow: var(--shadow);
+    
+        margin-bottom: 20px;
+    
+    }
+    
+    header h1 {
+    
+        color: var(--primary);
+    
+        margin-top: 15px;
+    
+    }
+
+    .top-banner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        background: linear-gradient(135deg, #eef5ff, #f4f7fb);
+        border-radius: var(--radius, 12px);
+        padding: 16px 24px;
+        margin-bottom: 16px;
+      }
+      
+      .top-banner-text h1 {
+        margin: 0;
+        color: var(--primary, #0a2540);
+        font-size: 1.6rem;
+      }
+      
+      .top-banner-text p {
+        margin: 4px 0 0;
+        color: var(--text-light, #666);
+        font-size: 0.9rem;
+      }
+      
+      .top-banner-logo {
+        flex-shrink: 0;
+      }
+      
+      .top-banner-logo img {
+        height: 40px;      /* this is the "reduced" logo size */
+        width: auto;
+        display: block;
+      }
+      
+      @media (max-width: 600px) {
+        .top-banner {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+        .top-banner-logo img {
+          height: 32px;
+        }
+      }
+    
+    #contractID {
+    
+        font-weight: bold;
+    
+        color: var(--primary);
+    
+    }
+    
+    /* ========= LOGO ========= */
+    
+    #taskerLogo {
+    
+        max-height: 90px;
+    
+        width: auto;
+    
+    }
+    
+    /* ========= PROGRESS TRACKER ========= */
+    
+    #progressTracker {
+    
+        display: flex;
+    
+        gap: 10px;
+    
+        margin-top: 25px;
+    
+        flex-wrap: wrap;
+    
+        position: sticky;
+    
+        top: 10px;
+    
+        z-index: 999;
+    
+    }
+    
+    .step {
+    
+        flex: 1;
+    
+        min-width: 130px;
+    
+        text-align: center;
+    
+        padding: 12px;
+    
+        border-radius: 10px;
+    
+        background: #edf2f7;
+    
+        color: var(--text-light);
+    
+        font-size: 14px;
+    
+        font-weight: 600;
+    
+    }
+    
+    .step.active {
+    
+        background: var(--primary);
+    
+        color: white;
+    
+    }
+    
+    .step.complete {
+    
+        background: var(--success);
+    
+        color: white;
+    
+    }
+    
+    /* ========= SECTIONS ========= */
+    
+    section {
+    
+        background: white;
+    
+        border-radius: var(--radius);
+    
+        box-shadow: var(--shadow);
+    
+        padding: 25px;
+    
+        margin-bottom: 20px;
+    
+    }
+    
+    section h2 {
+    
+        color: var(--primary);
+    
+        margin-bottom: 15px;
+    
+    }
+    
+    /* ========= INPUTS ========= */
+    
+    input,
+    select,
+    textarea {
+    
+        width: 100%;
+    
+        padding: 12px;
+    
+        margin-top: 8px;
+    
+        margin-bottom: 15px;
+    
+        border: 1px solid var(--border);
+    
+        border-radius: 8px;
+    
+        font-size: 15px;
+    
+        transition: all 0.2s ease;
+    
+    }
+    
+    input:focus,
+    select:focus,
+    textarea:focus {
+    
+        outline: none;
+    
+        border-color: var(--primary);
+    
+        box-shadow:
+            0 0 0 3px
+            rgba(10,37,64,.15);
+    
+    }
+    
+    textarea {
+    
+        min-height: 120px;
+    
+        resize: vertical;
+    
+    }
+    
+    /* ========= TWO COLUMN GRID ========= */
+    
+    .grid-2 {
+    
+        display: grid;
+    
+        grid-template-columns:
+            1fr 1fr;
+    
+        gap: 20px;
+    
+    }
+    
+    /* ========= THREE COLUMN GRID ========= */
+    
+    .grid-3 {
+    
+        display: grid;
+    
+        grid-template-columns:
+            repeat(3,1fr);
+    
+        gap: 20px;
+    
+    }
+    
+    /* ========= CLAUSES ========= */
+    
+    .clause {
+    
+        border-left:
+            4px solid var(--primary);
+    
+        padding-left: 15px;
+    
+        margin-bottom: 20px;
+    
+    }
+    
+    .clause h3 {
+    
+        color: var(--primary);
+    
+        margin-bottom: 8px;
+    
+    }
+    
+    /* ========= ANNEXURES ========= */
+    
+    .annexure {
+    
+        display: none;
+    
+    }
+    
+    .annexure.active {
+    
+        display: block;
+    
+    }
+    
+    /* ========= CHECKBOXES ========= */
+    
+    .checkbox-group {
+    
+        margin-top: 15px;
+    
+    }
+    
+    .checkbox-group label {
+    
+        display: block;
+    
+        margin-bottom: 10px;
+    
+    }
+    
+    .checkbox-group input {
+    
+        width: auto;
+    
+        margin-right: 10px;
+    
+    }
+    
+    /* ========= SIGNATURES ========= */
+    
+    .signature-container {
+    
+        margin-top: 20px;
+    
+    }
+    
+    .signature-image {
+    
+        max-height: 90px;
+    
+        margin-bottom: 15px;
+    
+    }
+    
+    #signaturePad {
+    
+        width: 100%;
+    
+        height: 250px;
+    
+        border: 2px dashed var(--border);
+    
+        border-radius: 10px;
+    
+        background: #fff;
+    
+    }
+    
+    /* ========= BUTTONS ========= */
+    
+    button {
+    
+        background: var(--primary);
+    
+        color: white;
+    
+        border: none;
+    
+        padding: 14px 24px;
+    
+        border-radius: 10px;
+    
+        cursor: pointer;
+    
+        font-size: 16px;
+    
+        font-weight: 600;
+    
+        transition: .2s;
+    
+    }
+    
+    button:hover {
+    
+        background: var(--primary-light);
+    
+    }
+    
+    /* ========= VALIDATION ========= */
+    
+    .error {
+    
+        color: var(--danger);
+    
+        font-size: 13px;
+    
+    }
+    
+    .success {
+    
+        color: var(--success);
+    
+    }
+    
+    /* ========= FOOTER ========= */
+    
+    footer {
+    
+        text-align: center;
+    
+        padding: 20px;
+    
+        color: var(--text-light);
+    
+    }
+    
+    /* ========= MOBILE ========= */
+    
+    @media (max-width: 768px) {
+    
+        body {
+    
+            padding: 10px;
+    
+        }
+    
+        .grid-2,
+        .grid-3 {
+    
+            grid-template-columns: 1fr;
+    
+        }
+    
+        #progressTracker {
+    
+            flex-direction: column;
+    
+        }
+    
+        .step {
+    
+            width: 100%;
+    
+        }
+    
+        section {
+    
+            padding: 18px;
+    
+        }
+    
+        header {
+    
+            padding: 18px;
+    
+        }
+    
+        h1 {
+    
+            font-size: 1.5rem;
+    
+        }
+    
+        h2 {
+    
+            font-size: 1.2rem;
+    
+        }
+    
+        button {
+    
+            width: 100%;
+    
+        }
+    
+    }
+    
+    /* ========= PRINT / PDF ========= */
+    
+    @media print {
+    
+        body {
+    
+            background: white;
+    
+        }
+    
+        button {
+    
+            display: none;
+    
+        }
+    
+        section {
+    
+            box-shadow: none;
+    
+            border: 1px solid #ddd;
+    
+        }
+    
+    }
+    
+    
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 1100px;
+        margin: auto;
+        padding: 20px;
+        background: #f5f7fa
+      }
+    
+      .header,
+      .section {
+        background: #fff;
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 14px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .1)
+      }
+    
+      /* ── PROGRESS BAR ── */
+      .progress-wrap {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #eef5ff;
+        padding: 10px 14px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+    
+      .progress-label {
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+    
+      .progress-bar-track {
+        background: #cdd9f0;
+        border-radius: 6px;
+        height: 10px;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: 8px;
+      }
+    
+      .progress-bar-fill {
+        height: 10px;
+        background: #2196F3;
+        border-radius: 6px;
+        width: 0%;
+        transition: width 0.3s ease;
+      }
+    
+      /* ── STEP PILLS ── */
+      .step-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+    
+      .step {
+        padding: 6px 12px;
+        border-radius: 5px;
+        background: #e0e0e0;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+    
+      .step.active {
+        background: #2196F3;
+        color: white;
+      }
+    
+      .step.complete {
+        background: #4CAF50;
+        color: white;
+      }
+    
+      /* ── GENERAL ── */
+      .annexure {
+        display:none;
+    }
+    
+    .annexure.active {
+        display:block;
+    }
+    
+      label {
+        display: block;
+        font-weight: 700;
+        margin: 8px 0 4px
+      }
+    
+      input:not([type=checkbox]):not([type=radio]),
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 10px;
+        box-sizing: border-box;
+      }
+    
+      input[type="checkbox"],
+      input[type="radio"] {
+        width: auto;
+        margin: 0 8px 0 0;
+        vertical-align: middle;
+      }
+    
+      .logo,
+      .signature-block {
+        border: 1px dashed #888;
+        padding: 12px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .logo img {
+        max-width: 100%;
+        max-height: 120px;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+    
+      canvas {
+        border: 1px solid #555;
+        width: 100%;
+        height: 180px;
+        display: block;
+        touch-action: none;
+      }
+    
+      button {
+        padding: 12px 18px
+      }
+    
+      /* ── ANNEXURES ── */
+      .annexure {
+        display: none
+      }
+    
+
+      .hidden {
+        display: none !important;
+      }
+
+      .annexure.active {
+        display: block
+      }
+    
+      /* ── SIGNATURE DATE BLOCKS ── */
+      .signature-metadata,
+      #clientDateBlock {
+        background: #fff;
+        border-radius: 10px;
+        padding: 16px;
+        margin-bottom: 14px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
+        font-style: italic;
+        color: #333;
+      }
+    
+      .date-display {
+        font-weight: bold;
+        color: #1565c0;
+      }
+    
+      @media(max-width:600px) {
+        body {
+          padding: 10px
+        }
+      }
+    
