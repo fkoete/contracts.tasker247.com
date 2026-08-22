@@ -725,6 +725,34 @@ body {
         color: #1565c0;
       }
     
+      /* ── CURRENCY INPUT GROUP ── */
+      .currency-input-group {
+        display: flex;
+        align-items: stretch;
+        margin: 6px 0 10px;
+      }
+
+      .currency-addon {
+        background: #eef2f7;
+        color: #0a2540;
+        font-weight: 700;
+        font-size: 14px;
+        padding: 10px 14px;
+        border: 1px solid var(--border, #d9dee5);
+        border-right: none;
+        border-radius: 8px 0 0 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+      }
+
+      .currency-input-group input {
+        margin: 0 !important;
+        border-radius: 0 8px 8px 0 !important;
+        flex: 1;
+      }
+
       @media(max-width:600px) {
         body {
           padding: 10px
@@ -831,14 +859,36 @@ body {
     <!-- ── STEP 2: COMMERCIAL TERMS ── -->
     <div class="section" data-section="2">
       <h2>Commercial Terms</h2>
-      <label for="projectValue">Project Value</label>
-      <input type="number" id="projectValue" name="projectValue" placeholder="Enter project value">
-      <label for="depositAmount">Deposit Amount</label>
-      <input type="number" id="depositAmount" name="depositAmount" placeholder="Enter deposit amount">
-      <label for="balanceAmount">Balance Amount</label>
-      <input type="number" id="balanceAmount" name="balanceAmount" placeholder="Enter balance amount">
+      
+      <label for="currency">Currency</label>
+      <select id="currency" name="currency">
+        <option value="ZAR" selected>ZAR (South African Rand - R)</option>
+        <option value="USD">USD ($)</option>
+        <option value="EUR">EUR (€)</option>
+        <option value="GBP">GBP (£)</option>
+      </select>
+
+      <label for="projectValue">Project Value (ZAR / R)</label>
+      <div class="currency-input-group">
+        <span class="currency-addon" id="projectValueCurrencyAddon">ZAR (R)</span>
+        <input type="number" id="projectValue" name="projectValue" placeholder="0.00" step="0.01" min="0">
+      </div>
+
+      <label for="depositAmount">Deposit Amount (ZAR / R)</label>
+      <div class="currency-input-group">
+        <span class="currency-addon" id="depositCurrencyAddon">ZAR (R)</span>
+        <input type="number" id="depositAmount" name="depositAmount" placeholder="0.00" step="0.01" min="0">
+      </div>
+
+      <label for="balanceAmount">Balance Amount (ZAR / R)</label>
+      <div class="currency-input-group">
+        <span class="currency-addon" id="balanceCurrencyAddon">ZAR (R)</span>
+        <input type="number" id="balanceAmount" name="balanceAmount" placeholder="0.00" step="0.01" min="0" readonly style="background-color: #f8fafc;">
+      </div>
+
       <label for="expectedStartDate">Expected Start Date</label>
       <input type="date" id="expectedStartDate" name="expectedStartDate">
+      
       <label for="expectedCompletionDate">Expected Completion Date</label>
       <input type="date" id="expectedCompletionDate" name="expectedCompletionDate">
     </div>
@@ -970,23 +1020,99 @@ body {
     <!-- Annexures (shown based on service selection) -->
     <div id="annexureCompliance" class="section annexure hidden">
       <h2>Annexure A – Compliance Services</h2>
-      <p>Client responsible for accuracy of submissions. Regulatory outcomes not guaranteed.</p>
+      <h3>1. Scope of Work & Deliverables</h3>
+      <ul>
+        <li><strong>CIPC & Statutory Filings:</strong> Facilitation and lodgement of annual returns, Director amendments (COR39), Company name reservations/changes, and MOI updates.</li>
+        <li><strong>Tax & Statutory Status:</strong> Preparation and liaison for SARS Tax Compliance Status (TCS) PINs, VAT/PAYE registrations, and statutory clearance monitoring.</li>
+        <li><strong>Labour & Compensation:</strong> Facilitation of Department of Employment and Labour submissions, COIDA registration, and Return of Earnings (ROE) lodgements.</li>
+        <li><strong>B-BBEE Facilitation:</strong> Gathering verified ownership affidavits, supporting documentation, and EME/QSE certificate coordination.</li>
+      </ul>
+      <br>
+      <h3>2. Client Responsibilities & Dependencies</h3>
+      <ul>
+        <li>Provision of valid certified director/shareholder IDs, proof of residential/business address, and company resolutions within 5 business days.</li>
+        <li>Timely provision of verification OTPs and signing of statutory submission forms.</li>
+      </ul>
+      <br>
+      <h3>3. Disclaimers & Statutory Boundaries</h3>
+      <p>Tasker247 acts solely as an administrative intermediary facilitating submissions based on Client-supplied records. Approval timelines, audits, and final statutory issuances remain strictly subject to the independent authority and backlogs of relevant regulatory bodies (CIPC, SARS, DoL).</p>
     </div>
+
     <div id="annexureAdmin" class="section annexure hidden">
       <h2>Annexure B – Administrative Services</h2>
-      <p>Services executed on client instructions. Source data remains client responsibility.</p>
+      <h3>1. Scope of Work & Deliverables</h3>
+      <ul>
+        <li><strong>Document Drafting & Filing:</strong> Preparation, standardisation, and secure cloud filing of administrative records, business letters, and client registers.</li>
+        <li><strong>Secretarial & Operations Support:</strong> Diary coordination, dispatch of scheduled client/vendor communications, and meeting minutes documentation.</li>
+        <li><strong>Billing & Record Reconciliation:</strong> Generating standard invoices, matching receipts to ledgers, and preparing transactional audit trails.</li>
+      </ul>
+      <br>
+      <h3>2. Client Responsibilities & Dependencies</h3>
+      <ul>
+        <li>Timely supply of clear source documents, transaction receipts, bank statements, and approval instructions.</li>
+        <li>Designation of an authorised representative for operational queries and approvals.</li>
+      </ul>
+      <br>
+      <h3>3. Disclaimers & Limitations</h3>
+      <p>Administrative actions are performed strictly on client instructions. Tasker247 is not an auditing firm and does not provide formal statutory audits or fiduciary oversight beyond agreed administrative assistance.</p>
     </div>
+
     <div id="annexureProcess" class="section annexure hidden">
-      <h2>Annexure C – Process Mapping &amp; Business Improvement</h2>
-      <p>Recommendations provided based on information available during engagement.</p>
+      <h2>Annexure C – Process Mapping & Business Improvement</h2>
+      <h3>1. Scope of Work & Deliverables</h3>
+      <ul>
+        <li><strong>Operational Workflow Audit:</strong> Detailed discovery sessions to map current-state (As-Is) operational and transactional workflows.</li>
+        <li><strong>Bottleneck & Efficiency Analysis:</strong> Identification of process waste, compliance risks, handoff delays, and automation opportunities.</li>
+        <li><strong>SOP Formulation & To-Be Design:</strong> Drafting Standard Operating Procedures (SOPs), process swimlane flowcharts, and future-state operational models.</li>
+        <li><strong>Handover & Staff Enablement:</strong> Delivery of documented workflow manuals and walkthrough presentations to key stakeholders.</li>
+      </ul>
+      <br>
+      <h3>2. Client Responsibilities & Dependencies</h3>
+      <ul>
+        <li>Providing Tasker247 consultants access to operational team leads, workflow observations, and existing internal documentation.</li>
+        <li>Prompt feedback and review on draft process maps and SOP documentation.</li>
+      </ul>
+      <br>
+      <h3>3. Disclaimers</h3>
+      <p>Recommendations reflect operational observations captured during the audit engagement. Tasker247 does not guarantee specific commercial or financial outcomes resulting from internal change management execution.</p>
     </div>
+
     <div id="annexureData" class="section annexure hidden">
-      <h2>Annexure D – Data Visualisation &amp; Reporting</h2>
-      <p>Outputs depend on data quality and completeness supplied by client.</p>
+      <h2>Annexure D – Data Visualisation & Reporting</h2>
+      <h3>1. Scope of Work & Deliverables</h3>
+      <ul>
+        <li><strong>Data Ingestion & Cleaning:</strong> Extraction, cleansing, validation, and structuring of raw tabular and relational data sources.</li>
+        <li><strong>Interactive Dashboard Design:</strong> Development of tailored business intelligence dashboards (KPI scorecards, operational trackers, executive summaries).</li>
+        <li><strong>Automated Reporting Pipelines:</strong> Establishing refresh schedules, automated summary views, and export-ready presentation templates.</li>
+      </ul>
+      <br>
+      <h3>2. Client Responsibilities & Dependencies</h3>
+      <ul>
+        <li>Providing secure, timely access to verified source datasets, APIs, access tokens, and calculation logic definitions.</li>
+        <li>Ensuring all provided raw data complies with POPIA and applicable privacy regulations.</li>
+      </ul>
+      <br>
+      <h3>3. Disclaimers</h3>
+      <p>Data visualization outputs and analytics rely entirely on the completeness, timeliness, and structural integrity of the source data provided by the Client.</p>
     </div>
+
     <div id="annexureProject" class="section annexure hidden">
-      <h2>Annexure E – Project &amp; Consulting Services</h2>
-      <p>Scope changes require written approval and may affect fees and timelines.</p>
+      <h2>Annexure E – Project & Consulting Services</h2>
+      <h3>1. Scope of Work & Deliverables</h3>
+      <ul>
+        <li><strong>Project Structuring:</strong> Formulation of project charters, milestone schedules, work breakdown structures (WBS), and resource plans.</li>
+        <li><strong>Execution & Monitoring:</strong> Ongoing tracking of project milestones, risk & issue register management, and stakeholder status reporting.</li>
+        <li><strong>Consulting Advisory & Closeout:</strong> Strategic advisory sessions, deliverable quality sign-offs, and final project handover documentation.</li>
+      </ul>
+      <br>
+      <h3>2. Client Responsibilities & Dependencies</h3>
+      <ul>
+        <li>Timely stakeholder attendance at scheduled milestone checkpoints and steering committee meetings.</li>
+        <li>Formal sign-off on deliverables within 5 business days of submission.</li>
+      </ul>
+      <br>
+      <h3>3. Disclaimers</h3>
+      <p>Project milestones are contingent upon agreed stakeholder review cycles. Material scope expansions require a mutually signed Change Order detailing fee and timeline adjustments.</p>
     </div>
 
     <!-- ── TASKER247 BRANDING & PRE-SIGNED BLOCK ── -->
@@ -1037,7 +1163,8 @@ body {
       <input type="hidden" id="contractIDField" name="contractID">
       <input type="hidden" id="signingTimestamp" name="signingTimestamp">
       <input type="hidden" id="contractVersion" name="contractVersion" value="MSA v1.0">
-      <input type="hidden" id="annexureVersion" name="annexureVersion">
+      <input type="hidden" id="annexureNameField" name="annexureName">
+      <input type="hidden" id="annexureVersion" name="annexureVersion" value="v1.0">
       <textarea id="contractBody" name="contractBody" hidden></textarea>
       <input type="hidden" id="scopeOfServicesField" name="scopeOfServices">
       <input type="hidden" id="clientIPField" name="clientIP">
@@ -1151,7 +1278,7 @@ body {
       // Step 1 – Services
       ["serviceType"],
       // Step 2 – Commercial
-      ["projectValue", "depositAmount", "expectedStartDate", "expectedCompletionDate"],
+      ["currency", "projectValue", "depositAmount", "expectedStartDate", "expectedCompletionDate"],
       // Step 3 – Agreement: auto-counted as complete once step 2 is done (user has scrolled past it)
       [],
       // Step 4 – Signature
@@ -1262,21 +1389,75 @@ body {
       hideBlock(companyBlock);
     }
 
+    /* ════════════════════════════════════════════
+       COMMERCIAL CALCULATIONS & CURRENCY SYNC
+    ════════════════════════════════════════════ */
+    function initCommercialCalculations() {
+      const currencySelect = document.getElementById("currency");
+      const projectValueInput = document.getElementById("projectValue");
+      const depositAmountInput = document.getElementById("depositAmount");
+      const balanceAmountInput = document.getElementById("balanceAmount");
+
+      const currencySymbols = {
+        ZAR: "ZAR (R)",
+        USD: "USD ($)",
+        EUR: "EUR (€)",
+        GBP: "GBP (£)"
+      };
+
+      function updateCurrencyAddons() {
+        const selected = currencySelect.value || "ZAR";
+        const symbolText = currencySymbols[selected] || selected;
+        
+        const pAddon = document.getElementById("projectValueCurrencyAddon");
+        const dAddon = document.getElementById("depositCurrencyAddon");
+        const bAddon = document.getElementById("balanceCurrencyAddon");
+
+        if (pAddon) pAddon.textContent = symbolText;
+        if (dAddon) dAddon.textContent = symbolText;
+        if (bAddon) bAddon.textContent = symbolText;
+      }
+
+      function calculateBalance() {
+        const val = parseFloat(projectValueInput.value) || 0;
+        const dep = parseFloat(depositAmountInput.value) || 0;
+        const balance = Math.max(0, val - dep);
+        
+        if (projectValueInput.value || depositAmountInput.value) {
+          balanceAmountInput.value = balance.toFixed(2);
+        } else {
+          balanceAmountInput.value = "";
+        }
+        updateProgress();
+      }
+
+      currencySelect.addEventListener("change", () => {
+        updateCurrencyAddons();
+        updateProgress();
+      });
+
+      projectValueInput.addEventListener("input", calculateBalance);
+      depositAmountInput.addEventListener("input", calculateBalance);
+
+      updateCurrencyAddons();
+    }
+
     function buildContractBody() {
       const parts = [];
     
       const clientType = document.getElementById("clientType").value;
       const serviceSelect = document.getElementById("serviceType");
       const serviceLabel = serviceSelect.options[serviceSelect.selectedIndex]?.text || "(not selected)";
+      const currency = document.getElementById("currency")?.value || "ZAR";
+      const projectValue = document.getElementById("projectValue")?.value || "0.00";
+      const depositAmount = document.getElementById("depositAmount")?.value || "0.00";
+      const balanceAmount = document.getElementById("balanceAmount")?.value || "0.00";
+      const startDate = document.getElementById("expectedStartDate")?.value || "TBD";
+      const completionDate = document.getElementById("expectedCompletionDate")?.value || "TBD";
     
       parts.push(`CLIENT TYPE: ${clientType || "(not selected)"}`);
       parts.push(`SERVICE SELECTED: ${serviceLabel}`);
-
-      // Capture scope of services as a labelled block in the contract body
-      const scopeEl = document.querySelector('#msaContent .section[data-section="3"] p');
-      if (scopeEl) {
-        parts.push(`SCOPE OF SERVICES: ${scopeEl.textContent.trim()}`);
-      }
+      parts.push(`COMMERCIAL TERMS: Currency: ${currency} | Project Value: ${currency} ${projectValue} | Deposit: ${currency} ${depositAmount} | Balance: ${currency} ${balanceAmount} | Start Date: ${startDate} | Completion Date: ${completionDate}`);
       parts.push("");
     
       const msa = document.getElementById("msaContent");
@@ -1288,7 +1469,7 @@ body {
     
       const activeAnnexure = document.querySelector(".annexure.active");
       if (activeAnnexure) {
-        parts.push("=== APPLICABLE ANNEXURE ===");
+        parts.push("=== APPLICABLE SERVICE ANNEXURE ===");
         parts.push(activeAnnexure.innerText.trim());
         parts.push("");
       }
@@ -1304,50 +1485,30 @@ body {
       const service = document.getElementById("serviceType");
       service.addEventListener("change", () => {
         document.querySelectorAll(".annexure").forEach(a => a.classList.remove("active"));
+        const annexureNameField = document.getElementById("annexureNameField");
+        const annexureVersionField = document.getElementById("annexureVersion");
+
         if (service.value) {
           const ann = document.getElementById(
             "annexure" + service.value.charAt(0).toUpperCase() + service.value.slice(1)
           );
-          if (ann) ann.classList.add("active");
+          if (ann) {
+            ann.classList.add("active");
+            const header = ann.querySelector("h2");
+            if (annexureNameField && header) {
+              annexureNameField.value = header.textContent.trim();
+            }
+            if (annexureVersionField) {
+              annexureVersionField.value = "v1.0";
+            }
+          }
+        } else {
+          if (annexureNameField) annexureNameField.value = "";
+          if (annexureVersionField) annexureVersionField.value = "";
         }
         updateProgress();
       });
     }
-
-    /* ════════════════════════════════════════════
-       DYNAMIC ANNEXURE LOADING
-    ════════════════════════════════════════════ */
-    function loadAnnexure(service){
-
-      document
-          .querySelectorAll(".annexure")
-          .forEach(a=>{
-  
-              a.classList.remove("active");
-  
-          });
-  
-      const annexure =
-          document.getElementById(
-              `annexure-${service}`
-          );
-  
-      if(annexure){
-  
-          annexure.classList.add("active");
-  
-          currentAnnexure =
-              annexure.innerText;
-  
-          currentAnnexureVersion =
-              "v1.0";
-  
-          document
-              .getElementById("annexureVersion")
-              .value =
-              currentAnnexureVersion;
-      }
-  }
 
     /* ════════════════════════════════════════════
        LIVE "PLACE" DISPLAY
@@ -1457,9 +1618,21 @@ body {
       document.getElementById("contractDateField").value = getContractDate();
       document.getElementById("signingTimestamp").value = getISOTimestamp();
 
-      // Populate scope of services as a standalone Formspree field
-      const scopeSection = document.querySelector('#msaContent .section[data-section="3"] p');
-      document.getElementById("scopeOfServicesField").value = scopeSection ? scopeSection.textContent.trim() : "";
+      // Populate scope of services and annexure details for Formspree
+      const activeAnnexure = document.querySelector(".annexure.active");
+      if (activeAnnexure) {
+        document.getElementById("scopeOfServicesField").value = activeAnnexure.innerText.trim();
+        const header = activeAnnexure.querySelector("h2");
+        if (header) {
+          document.getElementById("annexureNameField").value = header.textContent.trim();
+        }
+        document.getElementById("annexureVersion").value = "v1.0";
+      } else {
+        const scopeSection = document.querySelector('#msaContent .section[data-section="3"] p');
+        document.getElementById("scopeOfServicesField").value = scopeSection ? scopeSection.textContent.trim() : "";
+        document.getElementById("annexureNameField").value = "None Selected";
+        document.getElementById("annexureVersion").value = "";
+      }
 
       // If Formspree ID hasn't been replaced, show reminder and prevent submit
       if (this.action.includes("YOUR_FORMSPREE_ID")) {
@@ -1483,6 +1656,7 @@ body {
 
       initClientType();
       initServiceSelection();
+      initCommercialCalculations();
       initClientPlace();
       initSignaturePad();
       attachFieldListeners();
