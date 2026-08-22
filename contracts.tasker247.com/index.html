@@ -753,6 +753,48 @@ body {
         flex: 1;
       }
 
+      /* ── MASTER SERVICE AGREEMENT SECTION ── */
+      .msa-main-title {
+        font-size: 1.65rem !important;
+        font-weight: 800;
+        color: var(--primary, #0a2540);
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #e2e8f0;
+      }
+
+      .msa-clauses-list {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+      }
+
+      .msa-clauses-list > li {
+        margin-bottom: 22px;
+        font-size: 15px;
+        line-height: 1.65;
+        color: #2d3748;
+      }
+
+      .msa-clauses-list > li > strong.clause-title {
+        display: block;
+        font-size: 1.15rem;
+        color: var(--primary, #0a2540);
+        margin-bottom: 6px;
+      }
+
+      .msa-clauses-list p {
+        margin: 6px 0 8px;
+      }
+
+      .msa-clauses-list ul {
+        margin: 6px 0 10px 20px;
+      }
+
+      .msa-clauses-list ul li {
+        margin-bottom: 4px;
+      }
+
       @media(max-width:600px) {
         body {
           padding: 10px
@@ -898,124 +940,111 @@ body {
     
     <!-- ── STEP 3: AGREEMENT ── -->
     <section id="masterAgreement">
-    <div id="msaContent">
-    <div class="section" data-section="3">
-      <h2>Master Service Agreement</h2>
-      <ol>
-        <h3><strong>Scope of Services</strong></h3>
-        <p>The Service Provider agrees to render services as requested by the Client, including but not limited to administrative, compliance, business support, and related services as outlined in written communication, quotation, or proposal.</p>
-        <br>
-        <h3><strong>Client Information Disclosure</strong></h3>
-        <p>The Client warrants that all information, documentation, and instructions provided are accurate, complete, and truthful.</p>
-          <br>
-          <li>The Service Provider shall not be held liable for:</li>
-          
-          Errors, delays, or unsuccessful outcomes arising from incorrect, incomplete, or misleading information supplied by the Client.</p>
-        <br>
-          <h3><strong>Verification of Information</strong></h3>
-        <p>All compliance-related and submitted documentation will be subject to verification prior to the commencement of services.
+      <div id="msaContent">
+        <div class="section" data-section="3">
+          <h2 class="msa-main-title">Master Services Agreement</h2>
+          <ol class="msa-clauses-list">
+            <li>
+              <strong class="clause-title">1. Scope of Services</strong>
+              <p>The Service Provider agrees to render services as requested by the Client, including but not limited to administrative, compliance, business support, process improvement, data visualization, and related consulting services as outlined in written communication, quotation, proposal, or the applicable Service Annexure attached hereto.</p>
+            </li>
 
-          <p>The Service Provider reserves the right to:</p>
-          
-          <li>Delay or suspend services pending verification</li>
-          <li>Reject engagement where documentation is deemed insufficient or non-compliant</li>
-          <br>
-          <li><strong>Fees and Payment</strong></li>
-        <p>A non-refundable deposit or (as when agreed in principle) an up-front payment is required prior to commencement of any work.
-          The remaining balance shall be payable as per the agreed quotation or milestone structure.
-          <br>
-          Failure to make payment may result in suspension or termination of services.</p>
-          <br>
-          <li><strong>Refund & Work Allocation Policy</strong></li>
-        <p>In the event that services cannot be successfully completed due to:
-          <br>
-          Client’s failure to provide accurate or complete information, or
-          Client’s non-compliance with requirements
-          
-          The Service Provider shall:
-          
-          Retain a reasonable portion of fees proportional to the work already completed
-          Refund any remaining balance at its discretion, less administrative and operational costs</p>
-        <li>Confidentiality</li>
-        <p>Both parties agree to keep all shared information confidential and not disclose it to third parties without consent, except where required by law.</p>
-        <li>POPIA</li>
-        <p></p>
-        <li>Intellectual Property</li>
-        <p>he Supplier acknowledges that it may, during the course of this Contract, come
-          into possession, or gain knowiedge, of Intellectual Property owned by or licensed
-          to the Company. The Supplier acknowledges further that all right, title and interest
-          in and to all such Intellectual Property shall, at all times, remain the exclusive
-          property of the Company (or its licensor, as the case may be) and that they shall
-          not acquire any right to, or be entitled to use, any such intellectual Property in any
-          manner unless specifically authorized in writing to do so by the Company.</p>
+            <li>
+              <strong class="clause-title">2. Client Information Disclosure & Accuracy</strong>
+              <p>The Client warrants that all information, records, instructions, and documentation supplied to the Service Provider are accurate, complete, lawful, and truthful.</p>
+              <p>The Service Provider shall not be held liable for any errors, statutory penalties, delays, or unsuccessful outcomes arising directly or indirectly from incorrect, incomplete, forged, or misleading information provided by the Client.</p>
+            </li>
 
-          <p>ll Intellectual Property created, developed, devised or acquired pursuant to this
-            Contract, either by the Supplier and the Company jointly, shall be owned by the
-            Company. To the extent that any such Intellectual Property does not automatically
-            vest in the Company, the Supplier, to the extent that it is legally entitled to do so,
-            hereby assigns to the Company, all of its rights, title and interest in and to such
-            Intellectual Property. The Supplier furthermore undertakes to sign all documents
-            and provide all reasonable assistance required by the Company to give effect to
-            any such assignment and/or to allow the Company to register any relevant
-            Intellectual Property in its own name and/or to prove its title or enforce its rights to
-            such Intellectual Property</p>
+            <li>
+              <strong class="clause-title">3. Verification of Information & Statutory Due Diligence</strong>
+              <p>All compliance-related, statutory, and submitted documentation is subject to rigorous verification prior to the commencement or lodgement of services.</p>
+              <p>The Service Provider reserves the right to:</p>
+              <ul>
+                <li>Delay or suspend service execution pending third-party or statutory verification; and</li>
+                <li>Reject or terminate the engagement where documentation is deemed insufficient, unverifiable, or non-compliant with applicable legislation.</li>
+              </ul>
+            </li>
 
-            <p>he Supplier undertakes to keep confidential, and not to disclose, any Intellectual
-              Property supplied by the Company, or which comes into its possession or
-              knowledge as a result of this Contract</p>
+            <li>
+              <strong class="clause-title">4. Fees, Invoicing & Payment Terms</strong>
+              <p>A non-refundable deposit or agreed upfront payment is required prior to the commencement of any work. The remaining balance shall be payable strictly in accordance with the agreed quotation, milestone schedule, or upon presentation of invoice.</p>
+              <p>Failure to make timely payment may result in immediate suspension or termination of services, and the withholding of deliverables or statutory submissions.</p>
+            </li>
 
-              <p>he Supplier undertakes to use the Company's trademark only with the prior
-                written approval of the Company, and strictly in accordance with any requirements
-                specified by the Company from time to time and in no manner for any purpose
-                inconsistent with this Contract</p>
+            <li>
+              <strong class="clause-title">5. Refund & Work Allocation Policy</strong>
+              <p>In the event that services cannot be successfully completed due to the Client's failure to provide required information, unresponsiveness, or statutory non-compliance, the Service Provider shall:</p>
+              <ul>
+                <li>Retain a reasonable portion of fees proportional to the professional hours, disbursements, and work already performed; and</li>
+                <li>Refund any unearned remaining balance at its reasonable discretion, less administrative, operational, and bank processing costs.</li>
+              </ul>
+            </li>
 
-                <p>The Supplier shall immediately cease using any of the Company's materials,
-                  trademarks or other Intellectual Property upon the termination of this Contract for
-                  any reason whatsoever and shall return all such property to the Company as soon
-                  as is reasonably practicable thereafter</p>
-        <li>Limitation of Liability</li>
-        <p>To the fullest extent permitted by law:
+            <li>
+              <strong class="clause-title">6. Confidentiality</strong>
+              <p>Both parties agree to treat all commercial, financial, technical, operational, and proprietary information disclosed during the course of this Agreement as strictly confidential.</p>
+              <p>Neither party shall disclose confidential information to any third party without the prior written consent of the other, except where disclosure is required by law, court order, or strictly necessary for regulatory filings made on the Client's explicit instruction.</p>
+            </li>
 
-          The Service Provider shall not be liable for indirect, incidental, or consequential damages
-          Liability is limited to the amount paid by the Client for the specific service</p>
-        <li>Electronic Signatures</li>
-        <li>Force Majeure</li>
-        <p>Delay or failure to comply with or breach of any of the terms and conditions of this
-          Contract if occasioned by or resulting from an act of God or public enemy, fire,
-          explosion, earthquake, perils of the sea, flood, storm or other adverse weather
-          conditions, war, revolution, civil commotion or other civil strikes, riot, strikes,
-          blockage, embargo, sanctions, epidemics, pandemics, Government enforced
-          pandemic lock downs and similar events, act of any government or under
-          authority, compliance, with any government orders, demands or regulations, or
-          any circumstances of like or different nature beyond the reasonable control of the
-          Party so failing (Force Majeure Event), will not be deemed to be a breach of this
-          Contract nor will it subject either Party to incur any liability to the other.</p>
+            <li>
+              <strong class="clause-title">7. Protection of Personal Information (POPIA)</strong>
+              <p>Both parties acknowledge and agree to comply with all applicable provisions of the <strong>Protection of Personal Information Act No. 4 of 2013 (POPIA)</strong>:</p>
+              <ul>
+                <li><strong>Roles:</strong> The Client is the Responsible Party and the Service Provider acts as an Operator processing personal information on the Client's written mandate.</li>
+                <li><strong>Purpose Specification:</strong> The Service Provider shall process personal data solely for the explicit purpose of fulfilling the contracted services and statutory obligations.</li>
+                <li><strong>Security Safeguards:</strong> The Service Provider shall maintain appropriate technical and organizational measures to ensure data integrity and safeguard against unauthorized access, loss, or destruction.</li>
+                <li><strong>Retention & Deletion:</strong> Personal data shall not be retained longer than necessary to achieve the contracted purpose or meet statutory record-keeping mandates.</li>
+              </ul>
+            </li>
 
-          <p>Should the Company be prevented from carrying out its contractual obligations by
-            any Force Majeure Event, which lasts continuously for a period of 21 (twenty-one)
-            Business Days, the Company shall be entitled to terminate the Contract on written
-            notice to the Supplier.</p>
+            <li>
+              <strong class="clause-title">8. Intellectual Property</strong>
+              <p>All pre-existing Intellectual Property, proprietary methodologies, frameworks, and tools belonging to either party prior to this Agreement remain the exclusive property of that party.</p>
+              <p>All customized deliverables, process maps, reports, and documentation developed specifically for the Client pursuant to this Agreement shall vest in the Client upon receipt of full payment.</p>
+              <p>The Service Provider retains ownership of its underlying templates, standard operating frameworks, and proprietary business workflows.</p>
+            </li>
 
-            <p>It shall be incumbent upon the Client to immediately notify the Company in
-              writing of any inability to fulfil its obligations in terms of this Contract by reason of
-              any of the circumstances set out in this clause</p>
-        <li>Termination</li>
-        <p>Either party may terminate this Agreement in writing.
-          Upon termination:
-          
-          The Service Provider shall be entitled to payment for work already performed
-          Any applicable refunds will be processed in accordance with Clause 5</p>
-        <li>Governing Law</li>
-        <p>This Agreement shall be governed by the laws of the Republic of South Africa.</p>
-        <li>Dispute Resolution</li>
-        <p>Negotiation: If any dispute arises out of or relates to this Agreement, the parties shall first try to resolve it by direct good-faith negotiation. Either party may give written notice to the other to start this process, and senior representatives of the parties shall meet within 7 (seven) business days of the notice to resolve the dispute.</p>
-        <p>Mediation: If the dispute is not resolved by negotiation within 14 (fourteen) business days of the initial notice, the parties shall submit the dispute to administered mediation under the rules of the Arbitration Foundation of Southern Africa (AFSA).</p>
-        <p>Arbitration: If the mediation fails or is not completed within 30 (thirty) days of referral, the remaining dispute shall be settled by binding arbitration. The arbitration shall be held in South Africa, conducted in English, and administered by AFSA under its current commercial arbitration rules.</p>
-        <p>Urgent Relief: Nothing in this clause prevents any party from seeking urgent interim relief or a court interdict from the High Court of South Africa while the dispute process is ongoing.</p>
-      </ol>
-    </div>
-  </div>  
-  </section>
+            <li>
+              <strong class="clause-title">9. Limitation of Liability</strong>
+              <p>To the fullest extent permitted by South African law, the Service Provider, its directors, employees, and agents shall not be liable for any indirect, special, incidental, punitive, or consequential damages, loss of profits, loss of data, or business interruption.</p>
+              <p>The Service Provider's total aggregate liability under or in connection with this Agreement, whether in contract, delict, or otherwise, shall be strictly limited to the total fees actually paid by the Client for the specific service giving rise to the claim.</p>
+            </li>
+
+            <li>
+              <strong class="clause-title">10. Electronic Signatures & Digital Execution</strong>
+              <p>This Agreement may be executed through electronic signature in accordance with the <strong>Electronic Communications and Transactions Act No. 25 of 2002 (ECTA)</strong>:</p>
+              <ul>
+                <li>The parties consent to the use of electronic signatures, typed names, digital checkboxes, and online verification tools to signify mutual consent and execution.</li>
+                <li>The parties agree that electronic execution shall have the same legal force, validity, evidential weight, and enforceability as a physical handwritten signature.</li>
+                <li>Automated audit trail records (including IP addresses, timestamps, and browser verification) recorded upon submission constitute prima facie proof of execution.</li>
+              </ul>
+            </li>
+
+            <li>
+              <strong class="clause-title">11. Force Majeure</strong>
+              <p>Neither party shall be in breach of this Agreement or liable for delay or failure to perform obligations if caused by an event beyond its reasonable control (Force Majeure Event), including acts of God, civil commotion, strikes, power grid failures, telecommunication interruptions, pandemics, or statutory body shutdowns.</p>
+              <p>Should a Force Majeure Event prevent performance continuously for more than 21 (twenty-one) business days, either party may terminate this Agreement upon written notice.</p>
+            </li>
+
+            <li>
+              <strong class="clause-title">12. Termination</strong>
+              <p>Either party may terminate this Agreement upon written notice if the other party commits a material breach and fails to remedy such breach within 7 (seven) business days of written demand.</p>
+              <p>Upon termination, the Service Provider shall be entitled to payment for all work performed up to the date of termination, and any applicable refunds will be processed pursuant to Clause 5.</p>
+            </li>
+
+            <li>
+              <strong class="clause-title">13. Governing Law & Dispute Resolution</strong>
+              <p>This Agreement shall be governed by and construed in accordance with the laws of the Republic of South Africa.</p>
+              <ul>
+                <li><strong>Negotiation:</strong> Any dispute shall first be referred to good-faith negotiation between designated representatives within 7 (seven) business days of written notice.</li>
+                <li><strong>Mediation & Arbitration:</strong> If unresolved within 14 (fourteen) business days, the dispute shall be submitted to administered mediation and/or binding arbitration under the rules of the Arbitration Foundation of Southern Africa (AFSA).</li>
+                <li><strong>Urgent Relief:</strong> Nothing herein precludes either party from seeking urgent interim relief or an interdict from the High Court of South Africa.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>  
+    </section>
 
     <!-- Annexures (shown based on service selection) -->
     <div id="annexureCompliance" class="section annexure hidden">
