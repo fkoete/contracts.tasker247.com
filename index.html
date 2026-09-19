@@ -1279,7 +1279,7 @@ body {
        Uses api.ipify.org — free, no key needed.
        Stored in hidden field; sent with form POST.
     ════════════════════════════════════════════ */
-    function fetchClientIP() {
+   /* function fetchClientIP() {
       fetch("https://api.ipify.org?format=json")
         .then(r => r.json())
         .then(data => {
@@ -1288,7 +1288,7 @@ body {
         .catch(() => {
           document.getElementById("clientIPField").value = "unavailable";
         });
-    }
+    }*/
 
     /* ════════════════════════════════════════════
        PROGRESS TRACKER
